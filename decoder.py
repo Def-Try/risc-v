@@ -1,62 +1,62 @@
 class Decoder:
     @staticmethod
     def decode_I_type(instruction):
-        instruction_subtype = Instruction_parser.get_subtype__funct3(instruction)
-        destination_reg     = Instruction_parser.get_destination_register__rd(instruction)
-        source_reg          = Instruction_parser.get_source_register__rs1(instruction)
-        immediate_val       = Instruction_parser.get_hardcoded_number__immediate_i(instruction)
+        instruction_subtype = Decoder.get_subtype__funct3(instruction)
+        destination_reg     = Decoder.get_destination_register__rd(instruction)
+        source_reg          = Decoder.get_source_register__rs1(instruction)
+        immediate_val       = Decoder.get_hardcoded_number__immediate_i(instruction)
 
         return instruction_subtype, destination_reg, source_reg, immediate_val
 
     @staticmethod
     def decode_J_type(instruction):
-        destination_reg = Instruction_parser.get_destination_register__rd(instruction)
-        immediate_val   = Instruction_parser.get_hardcoded_number__immediate_j(instruction)
+        destination_reg = Decoder.get_destination_register__rd(instruction)
+        immediate_val   = Decoder.get_hardcoded_number__immediate_j(instruction)
 
         return destination_reg, immediate_val
 
     @staticmethod
     def decode_U_type(instruction):
-        destination_reg = Instruction_parser.get_destination_register__rd(instruction)
-        immediate_val   = Instruction_parser.get_hardcoded_number__immediate_u(instruction)
+        destination_reg = Decoder.get_destination_register__rd(instruction)
+        immediate_val   = Decoder.get_hardcoded_number__immediate_u(instruction)
 
         return destination_reg, immediate_val
 
     @staticmethod
     def decode_B_type(instruction):
-        instruction_subtype = Instruction_parser.get_subtype__funct3(instruction)
-        source_reg_1        = Instruction_parser.get_source_register__rs1(instruction)
-        source_reg_2        = Instruction_parser.get_source_register__rs2(instruction)
-        immediate_val       = Instruction_parser.get_hardcoded_number__immediate_b(instruction)
+        instruction_subtype = Decoder.get_subtype__funct3(instruction)
+        source_reg_1        = Decoder.get_source_register__rs1(instruction)
+        source_reg_2        = Decoder.get_source_register__rs2(instruction)
+        immediate_val       = Decoder.get_hardcoded_number__immediate_b(instruction)
 
         return instruction_subtype, source_reg_1, source_reg_2, immediate_val
 
     @staticmethod
     def decode_S_type(instruction):
-        instruction_subtype = Instruction_parser.get_subtype__funct3(instruction)
-        source_reg_1        = Instruction_parser.get_source_register__rs1(instruction)
-        source_reg_2        = Instruction_parser.get_source_register__rs2(instruction)
-        immediate_val       = Instruction_parser.get_hardcoded_number__immediate_s(instruction)
+        instruction_subtype = Decoder.get_subtype__funct3(instruction)
+        source_reg_1        = Decoder.get_source_register__rs1(instruction)
+        source_reg_2        = Decoder.get_source_register__rs2(instruction)
+        immediate_val       = Decoder.get_hardcoded_number__immediate_s(instruction)
 
         return instruction_subtype, source_reg_1, source_reg_2, immediate_val
 
     @staticmethod
     def decode_R_type(instruction):
-        instruction_subtype_f3 = Instruction_parser.get_subtype__funct3(instruction)
-        instruction_subtype_f7 = Instruction_parser.get_subtype__funct7(instruction)
-        source_reg_1        = Instruction_parser.get_source_register__rs1(instruction)
-        source_reg_2        = Instruction_parser.get_source_register__rs2(instruction)
-        destination_reg     = Instruction_parser.get_destination_register__rd(instruction)
+        instruction_subtype_f3 = Decoder.get_subtype__funct3(instruction)
+        instruction_subtype_f7 = Decoder.get_subtype__funct7(instruction)
+        source_reg_1        = Decoder.get_source_register__rs1(instruction)
+        source_reg_2        = Decoder.get_source_register__rs2(instruction)
+        destination_reg     = Decoder.get_destination_register__rd(instruction)
 
         return instruction_subtype_f3, instruction_subtype_f7, source_reg_1, source_reg_2, destination_reg
 
     @staticmethod
     def decode_R_type_atomic(instruction):
-        instruction_subtype_f3 = Instruction_parser.get_subtype__funct3(instruction)
-        instruction_subtype_f5 = Instruction_parser.get_subtype__funct5(instruction)
-        source_reg_1        = Instruction_parser.get_source_register__rs1(instruction)
-        source_reg_2        = Instruction_parser.get_source_register__rs2(instruction)
-        destination_reg     = Instruction_parser.get_destination_register__rd(instruction)
+        instruction_subtype_f3 = Decoder.get_subtype__funct3(instruction)
+        instruction_subtype_f5 = Decoder.get_subtype__funct5(instruction)
+        source_reg_1        = Decoder.get_source_register__rs1(instruction)
+        source_reg_2        = Decoder.get_source_register__rs2(instruction)
+        destination_reg     = Decoder.get_destination_register__rd(instruction)
         return instruction_subtype_f3, instruction_subtype_f5, source_reg_1, source_reg_2, destination_reg
 
     @staticmethod

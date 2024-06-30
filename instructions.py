@@ -1,3 +1,5 @@
+from decoder import Decoder
+
 class Instruction:
     def __init__(self, instruct: int, args: list) -> None:
         self.instruct = instruct
@@ -12,11 +14,7 @@ class Instruction:
 class JAL(Instruction):
     instn = 0b1101111
     def __init__(self, fetched: bytes) -> None:
-        rd = (fetched & 0b111110000000) >> 7
-        val = (fetched & 0b10000000000000000000000000000000) >> 11 | \
-              (fetched & 0b1111111111000000000000000000000) >> 20 | \
-              (fetched & 0b100000000000000000000) >> 9 | \
-              (fetched & 0b11111111000000000000)
+        rd, val = Decoder.decode_J_type(fetched)
         super().__init__(self.instn, [rd, val])
 
     def valid(self):
@@ -51,8 +49,8 @@ class FENCE(Instruction):
 class ANY_I(Instruction):
     instn = 0b0010011
     def __init__(self, fetched: bytes) -> None:
-        func = fetched & 0b111000000000000
-        func = func >> 12
+        ist, drg, srg, val = Decoder.decode_I_type(fetched)
+        super().__init__(self.instn, [ist, drg, srg, val])
 
     def valid(self):
         return True
