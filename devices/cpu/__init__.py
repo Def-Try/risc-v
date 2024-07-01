@@ -1,5 +1,5 @@
 from .instructions import INSTRUCTIONS
-from devices.memory import RAM
+from devices.memory import AddressBus
 
 from utils.logger import Logger
 
@@ -14,7 +14,7 @@ mask_mstatus_MPP  = 0x1800
 class CPU:
     __instructions = INSTRUCTIONS
 
-    def __init__(self, memory: RAM, logger: Logger):
+    def __init__(self, memory: AddressBus, logger: Logger):
         self.logger = logger
         self.registers = {
             "pc": 0x00000000
@@ -106,35 +106,26 @@ class CPU:
         raise NotImplementedError(f"Instruction not implemented: {instn:02x} / {instn:07b} / {instn}")
 
     def fetch_instruction(self):
-        fetched = int.from_bytes(self.memory.get_bytes(self.registers["pc"], 2), 'little')
-        self.registers["pc"] += 2
+        fetched = int.from_bytes(self.memory.read(self.registers["pc"], 2), 'little')
 
         inst_size = 16
 
         if fetched & 0b1111111 == 0b1111111:   # (80+16*nnn)-bit instruction
-            self.registers["pc"] -= 2
             n = (fetched >> 12) & 0b111
             if n == 0b111:                     # >= 192 bit instruction
                 raise NotImplementedError(f"Instruction size not implemented: {fetched:04x} / {fetched:16b}")
             x = (fetched >> 7) & 0b11111
             inst_size = bits = 80+16*n
-            fetched = int.from_bytes(self.memory.get_bytes(self.registers["pc"], int(bits / 8)), 'little')
-            self.registers["pc"] += int(bits / 8)
+            fetched = int.from_bytes(self.memory.read(self.registers["pc"], int(bits / 8)), 'little')
         elif fetched & 0b1111111 == 0b0111111: # 64 bit instruction
-            self.registers["pc"] -= 2
-            fetched = int.from_bytes(self.memory.get_bytes(self.registers["pc"], 8), 'little')
+            fetched = int.from_bytes(self.memory.read(self.registers["pc"], 8), 'little')
             inst_size = 64
-            self.registers["pc"] += 8
         elif fetched & 0b111111 == 0b011111:   # 48 bit instruction
-            self.registers["pc"] -= 2
-            fetched = int.from_bytes(self.memory.get_bytes(self.registers["pc"], 6), 'little')
+            fetched = int.from_bytes(self.memory.read(self.registers["pc"], 6), 'little')
             inst_size = 48
-            self.registers["pc"] += 6
         elif fetched & 0b11 == 0b11:           # 32 bit instruction
-            self.registers["pc"] -= 2
-            fetched = int.from_bytes(self.memory.get_bytes(self.registers["pc"], 4), 'little')
+            fetched = int.from_bytes(self.memory.read(self.registers["pc"], 4), 'little')
             inst_size = 32
-            self.registers["pc"] += 4
         else:                                  # 16 bit instruction
             pass
 
@@ -144,7 +135,12 @@ class CPU:
         else:
             raise NotImplementedError(f"Instruction format not implemented: {fetched:016x} / inst_s {inst_size}")
 
-        return self.get_instruction(instruction)(fetched)
+        saved_pc = self.registers["pc"]
+        ret = self.get_instruction(instruction)(fetched)
+        if self.registers["pc"] != saved_pc:
+            return ret
+        self.registers["pc"] += inst_size // 8
+        return ret
 
     def run(self, instruction_cb):
         graceful_exit = False

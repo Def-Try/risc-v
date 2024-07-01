@@ -126,7 +126,7 @@ class ANY_INTGR_I(Instruction):
     def __call__(self, cpu, memory, logger):
         ist, drg, srg, val = self.args
         if ist == 0: # ADDI
-            if (val & 0x8000) != 0:
+            if (val & 0x800) != 0:
                 val = -((~val & 0xFFF) + 1)
             logger.log(6, "CPU", f"ADDI -> x{drg} = x{srg} + {val}")
             cpu.integer_registers[drg] = \
@@ -169,12 +169,14 @@ class ANY_INTGR_I(Instruction):
             logger.log(6, "CPU", f"ORI -> x{drg} = x{srg} | {val}")
             cpu.integer_registers[drg] = \
                 cpu.integer_registers[srg] | val
+            return
 
         if ist == 7: # ANDI
             val = sign_extend_12_bit_value(val)
             logger.log(6, "CPU", f"ANDI -> x{drg} = x{srg} & {val}")
             cpu.integer_registers[drg] = \
                 cpu.integer_registers[srg] & val
+            return
 
         raise NotImplementedError(f"SUBInstruction not implemented: {ist:02x} / {ist:07b} / {ist}")
 
@@ -288,8 +290,8 @@ class LUI(Instruction):
 
     def __call__(self, cpu, memory, logger):
         drg, val = self.args
-        cpu.integer_registers[drg] = val << 12
-        logger.log(6, "CPU", f"LUI x{drg} = {val << 12}")
+        cpu.integer_registers[drg] = (val << 12)
+        logger.log(6, "CPU", f"LUI x{drg} = {converter.interpret_as_20_bit_signed_value(val)}")
 
 class BRANCH(Instruction):
     instn = 0b1100011
@@ -301,36 +303,54 @@ class BRANCH(Instruction):
         return True
 
     def __call__(self, cpu, memory, logger):
-        if self.args[0] == 0: # beq
-            logger.log(6, "CPU", f"BEQ x{self.args[1]} x{self.args[2]} -> PC + {self.args[3]}")
-            if not cpu.integer_registers[self.args[1]] == cpu.integer_registers[self.args[2]]: return
-            logger.log(6, "CPU", "  JUMP")
-            cpu.registers["pc"] += self.args[3]
-        if self.args[0] == 1: # bne
-            logger.log(6, "CPU", f"BNE x{self.args[1]} x{self.args[2]} -> PC + {self.args[3]}")
-            if not cpu.integer_registers[self.args[1]] != cpu.integer_registers[self.args[2]]: return
-            logger.log(6, "CPU", "  JUMP")
-            cpu.registers["pc"] += self.args[3]
-        if self.args[0] == 4: # blt
-            logger.log(6, "CPU", f"BLT x{self.args[1]} x{self.args[2]} -> PC + {self.args[3]}")
-            if not cpu.integer_registers[self.args[1]] < cpu.integer_registers[self.args[2]]: return
-            logger.log(6, "CPU", "  JUMP")
-            cpu.registers["pc"] += self.args[3]
-        if self.args[0] == 5: # bge
-            logger.log(6, "CPU", f"BGE x{self.args[1]} x{self.args[2]} -> PC + {self.args[3]}")
-            if not cpu.integer_registers[self.args[1]] >= cpu.integer_registers[self.args[2]]: return
-            logger.log(6, "CPU", "  JUMP")
-            cpu.registers["pc"] += self.args[3]
-        if self.args[0] == 6: # bltu
-            logger.log(6, "CPU", f"BLTU x{self.args[1]} x{self.args[2]} -> PC + {self.args[3]}")
-            if not cpu.integer_registers[self.args[1]] <= cpu.integer_registers[self.args[2]]: return
-            logger.log(6, "CPU", "  JUMP")
-            cpu.registers["pc"] += self.args[3]
-        if self.args[0] == 7: # bgeu
-            logger.log(6, "CPU", f"BGEU x{self.args[1]} x{self.args[2]} -> PC + {self.args[3]}")
-            if not cpu.integer_registers[self.args[1]] >= cpu.integer_registers[self.args[2]]: return
-            logger.log(6, "CPU", "  JUMP")
-            cpu.registers["pc"] += self.args[3]
+        ist, srg1, srg2, val = self.args
+        uv1, uv2 = cpu.integer_registers[srg1], cpu.integer_registers[srg2]
+        sv1, sv2 = converter.interpret_as_32_bit_signed_value(uv1), converter.interpret_as_32_bit_signed_value(uv2)
+        jmp = converter.interpret_as_13_bit_signed_value(val)
+
+        if ist == 0: # beq
+            if uv1 == uv2:
+                cpu.registers["pc"] += jmp - 4
+                logger.log(6, "CPU", f"BEQ x{srg1}({uv1}) == x{srg2}({uv2}) --> PC + {jmp}")
+            else:
+                logger.log(6, "CPU", f"BEQ x{srg1}({uv1}) == x{srg2}({uv2}) -/> PC + {jmp}")
+            return
+        if ist == 1: # bne
+            if uv1 != uv2:
+                cpu.registers["pc"] += jmp - 4
+                logger.log(6, "CPU", f"BNE x{srg1}({uv1}) != x{srg2}({uv2}) --> PC + {jmp}")
+            else:
+                logger.log(6, "CPU", f"BNE x{srg1}({uv1}) != x{srg2}({uv2}) -/> PC + {jmp}")
+            return
+        if ist == 4: # blt
+            if sv1 < sv2:
+                cpu.registers["pc"] += jmp - 4
+                logger.log(6, "CPU", f"BLT x{srg1}({sv1}) < x{srg2}({sv2}) --> PC + {jmp}")
+            else:
+                logger.log(6, "CPU", f"BLT x{srg1}({sv1}) < x{srg2}({sv2}) -/> PC + {jmp}")
+            return
+        if ist == 5: # bge
+            if sv1 >= sv2:
+                cpu.registers["pc"] += jmp - 4
+                logger.log(6, "CPU", f"BGE x{srg1}({sv1}) >= x{srg2}({sv2}) --> PC + {jmp}")
+            else:
+                logger.log(6, "CPU", f"BGE x{srg1}({sv1}) >= x{srg2}({sv2}) -/> PC + {jmp}")
+            return
+        if ist == 6: # bltu
+            if uv1 < uv2:
+                cpu.registers["pc"] += jmp - 4
+                logger.log(6, "CPU", f"BLTU x{srg1}({uv1}) < x{srg2}({uv2}) --> PC + {jmp}")
+            else:
+                logger.log(6, "CPU", f"BLTU x{srg1}({uv1}) < x{srg2}({uv2}) -/> PC + {jmp}")
+            return
+        if ist == 7: # bgeu
+            if uv1 >= uv2:
+                cpu.registers["pc"] += jmp - 4
+                logger.log(6, "CPU", f"BGEU x{srg1}({uv1}) >= x{srg2}({uv2}) --> PC + {jmp}")
+            else:
+                logger.log(6, "CPU", f"BGEU x{srg1}({uv1}) >= x{srg2}({uv2}) -/> PC + {jmp}")
+            return
+        raise NotImplementedError(f"SUBInstruction not implemented: {ist:02x} / {ist:07b} / {ist}")
 
 class STORE(Instruction):
     instn = 0b0100011
@@ -348,13 +368,13 @@ class STORE(Instruction):
         data = cpu.integer_registers[srg2]
         if ist == 0: # sb
             logger.log(6, "CPU", f"SB x{srg2} -> x{srg1} + {val}")
-            memory.put(addr, 1, data & 0xFF)
+            memory.write(addr, (data & 0xFF).to_bytes(1))
         if ist == 1: # sh
             logger.log(6, "CPU", f"SH x{srg2} -> x{srg1} + {val}")
-            memory.put(addr, 2, data & 0xFFFF)
+            memory.write(addr, (data & 0xFFFF).to_bytes(2))
         if ist == 2: # sw
             logger.log(6, "CPU", f"SW x{srg2} -> x{srg1} + {val}")
-            memory.put(addr, 4, data & 0xFFFFFFFF)
+            memory.write(addr, (data & 0xFFFFFFFF).to_bytes(4))
 
 class LOAD(Instruction):
     instn = 0b0000011
@@ -371,27 +391,27 @@ class LOAD(Instruction):
         addr = cpu.integer_registers[srg] + val
         if ist == 0: # lb
             logger.log(6, "CPU", f"LB x{drg} = x{srg} + {val}")
-            value = memory.get(addr, 1)
+            value = int.from_bytes(memory.read(addr, 1))
             if value & 0b10000000 != 0:
                 value = value | 0xFFFFFF00
             cpu.integer_registers[drg] = value
         if ist == 1: # lh
             logger.log(6, "CPU", f"LH x{drg} = x{srg} + {val}")
-            value = memory.get(addr, 2)
+            value = int.from_bytes(memory.read(addr, 2))
             if value & 0x8000 != 0:
                 value = value | 0xFFFF0000
             cpu.integer_registers[drg] = value
         if ist == 2: # lw
             logger.log(6, "CPU", f"LW x{drg} = x{srg} + {val}")
-            value = memory.get(addr, 4)
+            value = int.from_bytes(memory.read(addr, 4))
             cpu.integer_registers[drg] = value
         if ist == 3: # lbu
             logger.log(6, "CPU", f"LBU x{drg} = x{srg} + {val}")
-            value = memory.get(addr, 1)
+            value = int.from_bytes(memory.read(addr, 1))
             cpu.integer_registers[drg] = value
         if ist == 4: # lhu
             logger.log(6, "CPU", f"LHU x{drg} = x{srg} + {val}")
-            value = memory.get(addr, 2)
+            value = int.from_bytes(memory.read(addr, 2))
             cpu.integer_registers[drg] = value
 
 class ANY_ATOMIC(Instruction):
@@ -405,7 +425,7 @@ class ANY_ATOMIC(Instruction):
 
     def __call__(self, cpu, memory, logger):
         ist, ist2, srg1, srg2, drg = self.args
-        if self.args[0] != 0x02: raise ValueError("atomic invalid")
+        if ist != 0x02: raise ValueError("atomic invalid")
         if self.args[1] == 0x00:
             logger.log(6, "CPU", f"amoadd.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
             cpu.integer_registers[self.args[4]] = memory.get(cpu.integer_registers[self.args[2]]) + cpu.integer_registers[self.args[3]]
