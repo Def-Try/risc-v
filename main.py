@@ -18,9 +18,6 @@ def format_exception(e):
     formatted = f"{traceback}\n{klass.__name__}: {objekt}"
     return formatted
 
-with open("linux/kernel.img", 'rb') as file:
-    code_bytes = file.read()
-
 def parse_linker_map_file(file_content):
     symbols = []
     for line in file_content.splitlines():
@@ -51,12 +48,18 @@ with open("linux/kernel.map", 'r') as file:
     symbols = parse_linker_map_file(file_content)
 
 mem = RAM()
-mem.put_bytes(0x80000000, code_bytes)
+with open("linux/kernel.img", 'rb') as file:
+    linux_bytes = file.read()
+with open("linux/device_tree_binary.dtb", 'rb') as file:
+    code_bytes = file.read()
 cpu = CPU(mem)
-
+cpu.integer_registers[11] = 0x80000000 + (len(linux_bytes)*2) - len(code_bytes) - 192
+cpu.registers["pc"] = 0x80000000
+mem.put_bytes(cpu.integer_registers[11], code_bytes)
+mem.put_bytes(0x80000000, linux_bytes)
 try:
     def callback():
-        print(f"Executing: {get_symbol_name(cpu.registers["pc"], symbols)}, at {cpu.registers["pc"]:08x}")
+        print(f"Executing: {get_symbol_name(cpu.registers['pc'], symbols)}, at {cpu.registers['pc']:08x}")
     print(cpu.run(callback))
 except BaseException as e:
     print("-="*40+"-")

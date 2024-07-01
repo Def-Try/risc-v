@@ -8,7 +8,7 @@ class CPU:
 
     def __init__(self, memory: RAM):
         self.registers = {
-            "pc": 0x80000000
+            "pc": 0x00000000
         }
         self.integer_registers = [
              0, 0, 0, 0, 0, 0, 0, 0,
@@ -58,7 +58,7 @@ class CPU:
         else:                                  # 16 bit instruction
             pass
 
-        if log_everything: print(f"############## fetched: {fetched:08x} at PC {self.registers["pc"]:08x}")
+        if log_everything: print(f"############## fetched: {fetched:08x} at PC {self.registers['pc']:08x}")
         if inst_size == 32:
             instruction = fetched & 0b01111111
         else:

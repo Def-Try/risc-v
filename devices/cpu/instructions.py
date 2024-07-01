@@ -50,17 +50,37 @@ class JALR(Instruction):
 
         if log_everything: print(f"JALR -> {cpu.registers['pc']:08x}")
 
-class EBREAK(Instruction):
+class EBREAK_ECALL_CSR(Instruction):
     instn = 0b1110011
     def __init__(self, fetched: bytes) -> None:
-        pass
+        ist, drg, srg, val = Decoder.decode_I_type(fetched)
+        super().__init__(self.instn, [ist, drg, srg, val])
 
     def valid(self):
         return True
 
     def __call__(self, cpu, memory):
-        if log_everything: print("EBREAK")
-        pass
+        ist, drg, srg, val = self.args
+        if ist == 0:
+            if val == 0:
+                if log_everything: print("ECALL")
+                return
+            if val == 1:
+                if log_everything: print("EBREAK")
+                return
+            if val == 0x105:
+                if log_everything: print("WFI")
+                return
+            if val == 0x302:
+                if log_everything: print("MRET")
+                return
+        if ist == 1:
+            if log_everything: print(f"CSR-RW x{srg} x{drg} {val:03x}")
+            cur_val = cpu.csr_read(val)
+            new_val = cpu.integer_registers[srg]
+            cpu.csr_write(val, new_val)
+            cpu.integer_registers[drg] = old_val
+            return
 
 class FENCE(Instruction):
     instn = 0b0001111
@@ -72,7 +92,6 @@ class FENCE(Instruction):
 
     def __call__(self, cpu, memory):
         if log_everything: print("FENCE")
-        pass
 
 class ANY_INTGR_I(Instruction):
     instn = 0b0010011
@@ -221,82 +240,6 @@ class ANY_INTGR(Instruction):
                 return
             raise NotImplementedError(f"SUBSUBInstruction of {ist2:02x} not implemented: {ist1:02x} / {ist1:07b} / {ist1}")
         raise NotImplementedError(f"SUBInstruction not implemented: {ist2:02x} / {ist2:07b} / {ist2}")
-
-'''
-            if self.args[1] == 0x01:
-                if log_everything: print(f"MUL -> x{self.args[4]} = x{self.args[2]} * x{self.args[3]} & 0xFFFFFFFF")
-                cpu.integer_registers[self.args[4]] = \
-                    (cpu.integer_registers[self.args[2]] * cpu.integer_registers[self.args[3]]) & 0xFFFFFFFF
-            if self.args[1] == 0x20:
-                if log_everything: print(f"SUB -> x{self.args[4]} = x{self.args[2]} - x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] - cpu.integer_registers[self.args[3]]
-        if self.args[0] == 1: # sll / mulh
-            if self.args[1] == 0x00:
-                
-            if self.args[1] == 0x01:
-                if log_everything: print(f"MULH -> x{self.args[4]} = x{self.args[2]} * x{self.args[3]} & 0xFFFFFFFF00000000")
-                cpu.integer_registers[self.args[4]] = \
-                    (cpu.integer_registers[self.args[2]] * cpu.integer_registers[self.args[3]]) & 0xFFFFFFFF00000000
-        if self.args[0] == 2: # SLT / mulhsu
-            if self.args[1] == 0x00:
-                if log_everything: print(f"SLT -> x{self.args[4]} = x{self.args[2]} < x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    1 if cpu.integer_registers[self.args[2]] < cpu.integer_registers[self.args[3]] else 0
-            if self.args[1] == 0x01:
-                if log_everything: print(f"MULHSU -> x{self.args[4]} = x{self.args[2]} * x{self.args[3]} & 0xFFFFFFFF00000000")
-                cpu.integer_registers[self.args[4]] = \
-                    (cpu.integer_registers[self.args[2]] * cpu.integer_registers[self.args[3]]) & 0xFFFFFFFF00000000
-        if self.args[0] == 3: # SLTU / mulu
-            if self.args[1] == 0x00:
-                if log_everything: print(f"SLTU -> x{self.args[4]} = x{self.args[2]} < x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    1 if cpu.integer_registers[self.args[2]] < cpu.integer_registers[self.args[3]] else 0
-            if self.args[1] == 0x01:
-                if log_everything: print(f"MULU -> x{self.args[4]} = x{self.args[2]} * x{self.args[3]} & 0xFFFFFFFF00000000")
-                cpu.integer_registers[self.args[4]] = \
-                    (cpu.integer_registers[self.args[2]] * cpu.integer_registers[self.args[3]]) & 0xFFFFFFFF00000000
-        if self.args[0] == 4: # XOR / div
-            if self.args[1] == 0x00:
-                if log_everything: print(f"XOR -> x{self.args[4]} = x{self.args[2]} ^ x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] ^ cpu.integer_registers[self.args[3]]
-            if self.args[1] == 0x01:
-                if log_everything: print(f"DIV -> x{self.args[4]} = x{self.args[2]} / x{self.args[3]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] // cpu.integer_registers[self.args[3]]
-        if self.args[0] == 5: # SRL / SRA / divu
-            if self.args[1] == 0x00:
-                if log_everything: print(f"SRL -> x{self.args[4]} = x{self.args[2]} >> x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] >> cpu.integer_registers[self.args[3]]
-            if self.args[1] == 0x01:
-                if log_everything: print(f"DIVU -> x{self.args[4]} = x{self.args[2]} / x{self.args[3]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] // cpu.integer_registers[self.args[3]]
-            if self.args[1] == 0x20:
-                if log_everything: print(f"SRA -> x{self.args[4]} = x{self.args[2]} >> x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] >> cpu.integer_registers[self.args[3]]
-        if self.args[0] == 6: # OR / rem
-            if self.args[1] == 0x00:
-                if log_everything: print(f"OR -> x{self.args[4]} = x{self.args[2]} | x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] | cpu.integer_registers[self.args[3]]
-            if self.args[1] == 0x01:
-                if log_everything: print(f"REM -> x{self.args[4]} = x{self.args[2]} % x{self.args[3]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] % cpu.integer_registers[self.args[3]]
-        if self.args[0] == 7: # AND / remu
-            if self.args[1] == 0x00:
-                if log_everything: print(f"AND -> x{self.args[4]} = x{self.args[2]} & x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] & cpu.integer_registers[self.args[3]]
-            if self.args[1] == 0x01:
-                if log_everything: print(f"REMU -> x{self.args[4]} = x{self.args[2]} % x{self.args[3]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] % cpu.integer_registers[self.args[3]]
-'''
 
 class AUIPC(Instruction):
     instn = 0b0010111
