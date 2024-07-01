@@ -1,6 +1,7 @@
-from decoder import Decoder
+from utils.decoder import Decoder
+import utils.conversions as converter
 
-log_everything = True
+from config import log_everything
 
 class Instruction:
     def __init__(self, instruct: int, args: list) -> None:
@@ -16,20 +17,20 @@ class Instruction:
 class JAL(Instruction):
     instn = 0b1101111
     def __init__(self, fetched: bytes) -> None:
-        rd, val = Decoder.decode_J_type(fetched)
-        super().__init__(self.instn, [rd, val])
+        drg, val = Decoder.decode_J_type(fetched)
+        super().__init__(self.instn, [drg, val])
 
     def valid(self):
         return True
 
     def __call__(self, cpu, memory):
+        drg, val = self.args
         next_instruction = cpu.registers["pc"] + 4
-        if self.args[1] & 0x00100000 != 0:
-            self.args[1] = -((~self.args[1] & 0x000FFFFF) + 1)
-        cpu.registers["pc"] += self.args[1] - 4
-        cpu.integer_registers[self.args[0]] = next_instruction
+        val = converter.interpret_as_21_bit_signed_value(val)
+        cpu.registers["pc"] += val - 4
+        cpu.integer_registers[drg] = next_instruction
 
-        if log_everything: print(f"JAL -> {cpu.registers['pc']}")
+        if log_everything: print(f"JAL -> {cpu.registers['pc']:08x}")
 
 class JALR(Instruction):
     instn = 0b1100111
@@ -41,13 +42,13 @@ class JALR(Instruction):
         return True
 
     def __call__(self, cpu, memory):
+        ist, drg, srg, val = self.args
         next_instruction = cpu.registers["pc"] + 4
-        if self.args[3] & 0x00000800 != 0:
-            self.args[3] = -((~self.args[3] & 0x00000FFF) + 1)
-        cpu.registers["pc"] = cpu.integer_registers[self.args[2]] + self.args[3] - 4
-        cpu.integer_registers[self.args[1]] = next_instruction
+        val = converter.interpret_as_12_bit_signed_value(val)
+        cpu.registers["pc"] = cpu.integer_registers[srg] + val - 4
+        cpu.integer_registers[drg] = next_instruction
 
-        if log_everything: print(f"JALR -> {cpu.registers['pc']}")
+        if log_everything: print(f"JALR -> {cpu.registers['pc']:08x}")
 
 class EBREAK(Instruction):
     instn = 0b1110011
@@ -83,54 +84,145 @@ class ANY_INTGR_I(Instruction):
         return True
 
     def __call__(self, cpu, memory):
-        if self.args[0] == 0: # addi
-            if log_everything: print(f"ADDI -> x{self.args[1]} = x{self.args[2]} + {self.args[3]}")
-            cpu.integer_registers[self.args[1]] = \
-                cpu.integer_registers[self.args[2]] + self.args[3]
-        if self.args[0] == 1: # slli
-            if log_everything: print(f"SLLI -> x{self.args[1]} = x{self.args[2]} << {self.args[3] & 0x0f}")
-            cpu.integer_registers[self.args[1]] = \
-                cpu.integer_registers[self.args[2]] << (self.args[3] & 0x0F)
-        if self.args[0] == 2: # slti
-            if log_everything: print(f"SLTI -> x{self.args[1]} = x{self.args[2]} < {self.args[3]}")
-            cpu.integer_registers[self.args[1]] = \
-                1 if cpu.integer_registers[self.args[2]] < self.args[3] else 0
-        if self.args[0] == 3: # sltiu
-            if log_everything: print(f"SLTIU -> x{self.args[1]} = x{self.args[2]} < {self.args[3]}")
-            cpu.integer_registers[self.args[1]] = \
-                1 if cpu.integer_registers[self.args[2]] < self.args[3] else 0
-        if self.args[0] == 4: # xori
-            if log_everything: print(f"XORI -> x{self.args[1]} = x{self.args[2]} ^ {self.args[3]}")
-            cpu.integer_registers[self.args[1]] = \
-                cpu.integer_registers[self.args[2]] ^ self.args[3]
-        if self.args[0] == 5: # srli
-            if log_everything: print(f"SRLI -> x{self.args[1]} = x{self.args[2]} >> {self.args[3] & 0x0f}")
-            cpu.integer_registers[self.args[1]] = \
-                cpu.integer_registers[self.args[2]] >> (self.args[3] & 0x0F)
-        if self.args[0] == 6: # ori
-            if log_everything: print(f"ORI -> x{self.args[1]} = x{self.args[2]} | {self.args[3]}")
-            cpu.integer_registers[self.args[1]] = \
-                cpu.integer_registers[self.args[2]] | self.args[3]
-        if self.args[0] == 7: # andi
-            if log_everything: print(f"ANDI -> x{self.args[1]} = x{self.args[2]} & {self.args[3]}")
-            cpu.integer_registers[self.args[1]] = \
-                cpu.integer_registers[self.args[2]] & self.args[3]
+        ist, drg, srg, val = self.args
+        if ist == 0: # ADDI
+            if (val & 0x8000) != 0:
+                val = -((~val & 0xFFF) + 1)
+            if log_everything: print(f"ADDI -> x{drg} = x{srg} + {val}")
+            cpu.integer_registers[drg] = \
+                cpu.integer_registers[srg] + val
+            return
+
+        if ist == 1: # SLLI
+            if log_everything: print(f"SLLI -> x{drg} = x{srg} << {val & 0x1F}")
+            cpu.integer_registers[drg] = \
+                cpu.integer_registers[srg] << (val & 0x1F)
+            return
+
+        if ist == 3: # SLTIU
+            if log_everything: print(f"SLTIU -> x{drg} = x{srg} < {val}")
+            cpu.integer_registers[drg] = \
+                1 if cpu.integer_registers[srg] < val else 0
+            return
+
+        if ist == 4: # XORI
+            val = converter.sign_extend_12_bit_value(val)
+            if log_everything: print(f"XORI -> x{drg} = x{srg} ^ {val}")
+            cpu.integer_registers[drg] = \
+                cpu.integer_registers[srg] ^ val
+            return
+
+        if ist == 5: # SRLI / SRAI
+            if val >> 5 == 0x00:
+                cpu.integer_registers[drg] = \
+                    cpu.integer_registers[srg] >> (val & 0x1F)
+                if log_everything: print(f"SRLI -> x{drg} = x{srg} >> {val & 0x1F}")
+                return
+            if val >> 5 == 0x20:
+                cpu.integer_registers[drg] = \
+                    converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg]) >> (val & 0x1F)
+                if log_everything: print(f"SRAI -> x{drg} = x{srg} >> {val & 0x1F}")
+                return
+
+        if ist == 6: # ORI
+            val = sign_extend_12_bit_value(val)
+            if log_everything: print(f"ORI -> x{drg} = x{srg} | {val}")
+            cpu.integer_registers[drg] = \
+                cpu.integer_registers[srg] | val
+
+        if ist == 7: # ANDI
+            val = sign_extend_12_bit_value(val)
+            if log_everything: print(f"ANDI -> x{drg} = x{srg} & {val}")
+            cpu.integer_registers[drg] = \
+                cpu.integer_registers[srg] & val
+
+        raise NotImplementedError(f"SUBInstruction not implemented: {ist:02x} / {ist:07b} / {ist}")
 
 class ANY_INTGR(Instruction):
     instn = 0b0110011
     def __init__(self, fetched: bytes) -> None:
-        ist, ist2, srg1, srg2, drg = Decoder.decode_R_type(fetched)
-        super().__init__(self.instn, [ist, ist2, srg1, srg2, drg])
+        ist1, ist2, srg1, srg2, drg = Decoder.decode_R_type(fetched)
+        super().__init__(self.instn, [ist1, ist2, srg1, srg2, drg])
 
     def valid(self):
         return True
 
     def __call__(self, cpu, memory):
-        if self.args[0] == 0: # add / sub / mul
-            if self.args[1] == 0x00:
-                if log_everything: print(f"ADD -> x{self.args[4]} = x{self.args[2]} + x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] + cpu.integer_registers[self.args[3]]
+        ist1, ist2, srg1, srg2, drg = self.args
+        if ist2 == 0x00:
+            if ist1 == 0:
+                if log_everything: print(f"ADD -> x{drg} = x{srg1} + x{srg2}")
+                cpu.integer_registers[drg] = \
+                    cpu.integer_registers[srg1] + cpu.integer_registers[srg2]
+                return
+            if ist1 == 1:
+                if log_everything: print(f"SLL -> x{drg} = x{srg1} << x{srg2} & 0x1F")
+                cpu.integer_registers[drg] = \
+                    cpu.integer_registers[srg1] << (cpu.integer_registers[srg2] & 0x1F)
+                return
+            if ist1 == 2:
+                if log_everything: print(f"SLT -> x{drg} = x{srg1} < x{srg2}")
+                cpu.integer_registers[drg] = \
+                    1 if converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) \
+                        < converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]) else 0
+                return
+            if ist1 == 3:
+                if log_everything: print(f"SLTU -> x{drg} = x{srg1} < x{srg2}")
+                cpu.integer_registers[drg] = \
+                    1 if cpu.integer_registers[srg1] < cpu.integer_registers[srg2] else 0
+                return
+            if ist1 == 4:
+                if log_everything: print(f"XOR -> x{drg} = x{srg1} ^ x{srg2}")
+                cpu.integer_registers[drg] = \
+                    cpu.integer_registers[srg1] ^ cpu.integer_registers[srg2]
+                return
+            if ist1 == 5:
+                if log_everything: print(f"SRL -> x{drg} = x{srg1} >> x{srg2} & 0x1F")
+                cpu.integer_registers[drg] = \
+                    cpu.integer_registers[srg1] >> (cpu.integer_registers[srg2] & 0x1F)
+                return
+            if ist1 == 6:
+                if log_everything: print(f"OR -> x{drg} = x{srg1} | x{srg2}")
+                cpu.integer_registers[drg] = \
+                    cpu.integer_registers[srg1] | cpu.integer_registers[srg2]
+                return
+            if ist1 == 7:
+                if log_everything: print(f"AND -> x{drg} = x{srg1} & x{srg2}")
+                cpu.integer_registers[drg] = \
+                    cpu.integer_registers[srg1] & cpu.integer_registers[srg2]
+                return
+            raise NotImplementedError(f"SUBSUBInstruction of {ins2:02x} not implemented: {ist1:02x} / {ist1:07b} / {ist1}")
+        if ist2 == 1:
+            if ist1 == 0:
+                if log_everything: print(f"MUL -> x{drg} = x{srg1} * x{srg2}")
+                cpu.integer_registers[drg] = \
+                    converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) \
+                        * converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2])
+                return
+            if ist1 == 1:
+                if log_everything: print(f"MULH -> x{drg} = x{srg1} * x{srg2}")
+                cpu.integer_registers[drg] = \
+                    (converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) \
+                        * converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2])) >> 32
+                return
+            if ist1 == 3:
+                if log_everything: print(f"MULHU -> x{drg} = x{srg1} * x{srg2}")
+                cpu.integer_registers[drg] = \
+                    (cpu.integer_registers[srg1] * cpu.integer_registers[srg2]) >> 32
+                return
+            if ist1 == 4:
+                if log_everything: print(f"DIV -> x{drg} = x{srg1} / x{srg2}")
+                #if converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]) == 0:
+                #    cpu.integer_registers[drg] = 0xFFFFFFFF
+                #    return
+                cpu.integer_registers[drg] = converter.convert_to_32_bit_unsigned_value(
+                    converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) \
+                        // converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]))
+                return
+            raise NotImplementedError(f"SUBSUBInstruction of {ist2:02x} not implemented: {ist1:02x} / {ist1:07b} / {ist1}")
+        raise NotImplementedError(f"SUBInstruction not implemented: {ist2:02x} / {ist2:07b} / {ist2}")
+
+'''
             if self.args[1] == 0x01:
                 if log_everything: print(f"MUL -> x{self.args[4]} = x{self.args[2]} * x{self.args[3]} & 0xFFFFFFFF")
                 cpu.integer_registers[self.args[4]] = \
@@ -141,9 +233,7 @@ class ANY_INTGR(Instruction):
                     cpu.integer_registers[self.args[2]] - cpu.integer_registers[self.args[3]]
         if self.args[0] == 1: # sll / mulh
             if self.args[1] == 0x00:
-                if log_everything: print(f"SLL -> x{self.args[4]} = x{self.args[2]} << x{self.args[2]}")
-                cpu.integer_registers[self.args[4]] = \
-                    cpu.integer_registers[self.args[2]] << cpu.integer_registers[self.args[3]]
+                
             if self.args[1] == 0x01:
                 if log_everything: print(f"MULH -> x{self.args[4]} = x{self.args[2]} * x{self.args[3]} & 0xFFFFFFFF00000000")
                 cpu.integer_registers[self.args[4]] = \
@@ -206,6 +296,7 @@ class ANY_INTGR(Instruction):
                 if log_everything: print(f"REMU -> x{self.args[4]} = x{self.args[2]} % x{self.args[3]}")
                 cpu.integer_registers[self.args[4]] = \
                     cpu.integer_registers[self.args[2]] % cpu.integer_registers[self.args[3]]
+'''
 
 class AUIPC(Instruction):
     instn = 0b0010111
