@@ -1,14 +1,52 @@
 from .instructions import INSTRUCTIONS
 from devices.memory import RAM
 
-from config import log_everything
+from utils.logger import Logger
+
+MACHINE_MODE    = 0b11
+SUPERVISOR_MODE = 0b01
+USER_MODE       = 0b00
+
+mask_mstatus_MIE  = 0x0008
+mask_mstatus_MPIE = 0x0080
+mask_mstatus_MPP  = 0x1800
 
 class CPU:
     __instructions = INSTRUCTIONS
 
-    def __init__(self, memory: RAM):
+    def __init__(self, memory: RAM, logger: Logger):
+        self.logger = logger
         self.registers = {
             "pc": 0x00000000
+        }
+        self.register_ids = { # CSR-to-regname dict
+            0x139: "hvc0", # Xen hypervisor console out
+            0x140: "sscratch", # Scratch register for supervisor trap handlers
+            0x300: "mstatus", # Machine Status register
+            0x304: "mie", # Machine Interrupt Enable
+            0x305: "mtvec", # Machine trap-handler base address
+            0x340: "mscratch", # Scratch register
+            0x341: "mepc", # Machine exception PC / Instruction pointer
+            0x342: "mcause", # Machine trap cause
+            0x343: "mtval", # Machine bad address or instruction
+            0x344: "mip", # Machine Interrupt Pending
+            0x3a0: "pmpcfg0", # Physical memory protection configuration
+            0x3b0: "pmpaddr0", # Physical memory protection address register
+            0xf11: "mvendorid", # Machine Vendor ID
+            0xf12: "marchid", # Machine Architecture ID
+            0xf13: "mimpid", # Machine Implementation ID
+            0xf14: "mhartid", # Hardware thread ID
+        }
+        self.hardwires = { # CSR register hardwires
+            "sscratch": 0xffffffff,
+            "mvendorid": 0xff0ff0ff,
+            "mhartid": 0,
+            "pmpcfg0": 0,
+            "pmpaddr0": 0,
+            "mvendorid": 0,
+            "marchid": 0,
+            "mimpid": 0,
+            "hvc0": 0
         }
         self.integer_registers = [
              0, 0, 0, 0, 0, 0, 0, 0,
@@ -17,11 +55,53 @@ class CPU:
              0, 0, 0, 0, 0, 0, 0, 0,
         ]
         self.memory = memory
+        self.previous_privilege_mode = USER_MODE
+        self.privilege_mode = MACHINE_MODE
+        self.previous_interrupts_enable = False
+        self.interrupts_enable = False
+
+    def csr_read(self, address):
+        regname = self.register_ids.get(address, "NONE")
+        if regname == "NONE": return 0
+        if self.hardwires.get(regname): return self.hardwires[regname]
+        if regname == "mstatus":
+            mstatus_value = 0
+            if self.interrupts_enable:
+                mstatus_value |= mask_mstatus_MIE
+            if self.previous_interrupts_enable == True:
+                mstatus_value |= mask_mstatus_MPIE
+            mstatus_value |= (self.previous_privilege_mode << 11)
+            return mstatus_value
+        else:
+            return self.registers.get(regname, 0)
+
+    def csr_write(self, address, data):
+        regname = self.register_ids.get(address, "NONE")
+        if regname == "NONE": return
+        if regname == "hvc0": print(chr(data), end='', flush=True)
+        if self.hardwires.get(regname): return
+        if regname == "mstatus":
+            changed_bits = self.csr_read(address) ^ data
+            if changed_bits: return
+            if changed_bits & mask_mstatus_MIE == mask_mstatus_MIE:
+                if data & mask_mstatus_MIE:
+                    self.interrupts_enable = True
+                    return
+                self.interrupts_enable = False
+            if changed_bits & mask_mstatus_MPIE == mask_mstatus_MPIE:
+                if data & mask_mstatus_MPIE:
+                    self.previous_interrupts_enable = True
+                    return
+                self.previous_interrupts_enable = False
+            if changed_bits & mask_mstatus_MPP == mask_mstatus_MPP:
+                self.previous_privilege_mode = ((data & mask_mstatus_MPP) >> 11) & 0b11
+        else:
+            self.registers[regname] = data
 
     def get_instruction(self, instn):
         for instruction in self.__instructions:
             if instruction.instn != instn: continue
-            if log_everything: print(f"Instruction implemented: {instn:02x} / {instn:07b} / {instn} / {instruction.__name__}")
+            self.logger.log(5, "CPU", f"Instruction implemented: {instn:02x} / {instn:07b} / {instn} / {instruction.__name__}")
             return instruction
         raise NotImplementedError(f"Instruction not implemented: {instn:02x} / {instn:07b} / {instn}")
 
@@ -58,7 +138,7 @@ class CPU:
         else:                                  # 16 bit instruction
             pass
 
-        if log_everything: print(f"############## fetched: {fetched:08x} at PC {self.registers['pc']:08x}")
+        self.logger.log(5, "CPU", f"############## fetched: {fetched:08x} at PC {self.registers['pc']:08x}")
         if inst_size == 32:
             instruction = fetched & 0b01111111
         else:
@@ -71,7 +151,7 @@ class CPU:
         while True:
             instruction = self.fetch_instruction()
             if not instruction.valid(): break
-            instruction(self, self.memory)
+            instruction(self, self.memory, self.logger)
             instruction_cb()
             self.integer_registers[0] = 0
             for i in range(len(self.integer_registers)): self.integer_registers[i] = self.integer_registers[i] & 0xFFFFFFFF

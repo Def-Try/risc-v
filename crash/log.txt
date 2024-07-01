@@ -1,0 +1,3124 @@
+[L5 / CPU] ############## fetched: 05c0006f at PC 80000004
+[L5 / CPU] Instruction implemented: 6f / 1101111 / 111 / JAL
+[L6 / CPU] JAL -> 8000005c
+[L3 / MAIN] Executing: _start_kernel(), at 8000005c
+[L5 / CPU] ############## fetched: 30401073 at PC 80000060
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RW x0 x0 304
+[L3 / MAIN] Executing: _start_kernel(), at 80000060
+[L5 / CPU] ############## fetched: 34401073 at PC 80000064
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RW x0 x0 344
+[L3 / MAIN] Executing: _start_kernel(), at 80000064
+[L5 / CPU] ############## fetched: 0000100f at PC 80000068
+[L5 / CPU] Instruction implemented: 0f / 0001111 / 15 / FENCE
+[L6 / CPU] FENCE
+[L3 / MAIN] Executing: _start_kernel(), at 80000068
+[L5 / CPU] ############## fetched: 0a8000ef at PC 8000006c
+[L5 / CPU] Instruction implemented: 6f / 1101111 / 111 / JAL
+[L6 / CPU] JAL -> 80000110
+[L3 / MAIN] Executing: reset_regs(), at 80000110
+[L5 / CPU] ############## fetched: 00000113 at PC 80000114
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000114
+[L5 / CPU] ############## fetched: 00000193 at PC 80000118
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x3 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000118
+[L5 / CPU] ############## fetched: 00000213 at PC 8000011c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x4 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 8000011c
+[L5 / CPU] ############## fetched: 00000293 at PC 80000120
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x5 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000120
+[L5 / CPU] ############## fetched: 00000313 at PC 80000124
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x6 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000124
+[L5 / CPU] ############## fetched: 00000393 at PC 80000128
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x7 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000128
+[L5 / CPU] ############## fetched: 00000413 at PC 8000012c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x8 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 8000012c
+[L5 / CPU] ############## fetched: 00000493 at PC 80000130
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x9 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000130
+[L5 / CPU] ############## fetched: 00000613 at PC 80000134
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x12 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000134
+[L5 / CPU] ############## fetched: 00000693 at PC 80000138
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x13 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000138
+[L5 / CPU] ############## fetched: 00000713 at PC 8000013c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 8000013c
+[L5 / CPU] ############## fetched: 00000793 at PC 80000140
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x15 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000140
+[L5 / CPU] ############## fetched: 00000813 at PC 80000144
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x16 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000144
+[L5 / CPU] ############## fetched: 00000893 at PC 80000148
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x17 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000148
+[L5 / CPU] ############## fetched: 00000913 at PC 8000014c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x18 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 8000014c
+[L5 / CPU] ############## fetched: 00000993 at PC 80000150
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x19 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000150
+[L5 / CPU] ############## fetched: 00000a13 at PC 80000154
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x20 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000154
+[L5 / CPU] ############## fetched: 00000a93 at PC 80000158
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x21 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000158
+[L5 / CPU] ############## fetched: 00000b13 at PC 8000015c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x22 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 8000015c
+[L5 / CPU] ############## fetched: 00000b93 at PC 80000160
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x23 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000160
+[L5 / CPU] ############## fetched: 00000c13 at PC 80000164
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x24 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000164
+[L5 / CPU] ############## fetched: 00000c93 at PC 80000168
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x25 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000168
+[L5 / CPU] ############## fetched: 00000d13 at PC 8000016c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x26 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 8000016c
+[L5 / CPU] ############## fetched: 00000d93 at PC 80000170
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x27 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000170
+[L5 / CPU] ############## fetched: 00000e13 at PC 80000174
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x28 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000174
+[L5 / CPU] ############## fetched: 00000e93 at PC 80000178
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x29 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000178
+[L5 / CPU] ############## fetched: 00000f13 at PC 8000017c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x30 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 8000017c
+[L5 / CPU] ############## fetched: 00000f93 at PC 80000180
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x31 = x0 + 0
+[L3 / MAIN] Executing: reset_regs(), at 80000180
+[L5 / CPU] ############## fetched: 34005073 at PC 80000184
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RWI 0 x0 340
+[L3 / MAIN] Executing: reset_regs(), at 80000184
+[L5 / CPU] ############## fetched: 00008067 at PC 80000188
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8000006c
+[L3 / MAIN] Executing: _start_kernel(), at 8000006c
+[L5 / CPU] ############## fetched: 00000517 at PC 80000070
+[L5 / CPU] Instruction implemented: 17 / 0010111 / 23 / AUIPC
+[L6 / CPU] AUIPC x10 = PC + 0
+[L3 / MAIN] Executing: _start_kernel(), at 80000070
+[L5 / CPU] ############## fetched: 01c50513 at PC 80000074
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x10 = x10 + 28
+[L3 / MAIN] Executing: _start_kernel(), at 80000074
+[L5 / CPU] ############## fetched: 30551073 at PC 80000078
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RW x10 x0 305
+[L3 / MAIN] Executing: _start_kernel(), at 80000078
+[L5 / CPU] ############## fetched: fff00513 at PC 8000007c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x10 = x0 + 4095
+[L3 / MAIN] Executing: _start_kernel(), at 8000007c
+[L5 / CPU] ############## fetched: 3b051073 at PC 80000080
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RW x10 x0 3b0
+[L3 / MAIN] Executing: _start_kernel(), at 80000080
+[L5 / CPU] ############## fetched: 01f00513 at PC 80000084
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x10 = x0 + 31
+[L3 / MAIN] Executing: _start_kernel(), at 80000084
+[L5 / CPU] ############## fetched: 3a051073 at PC 80000088
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RW x10 x0 3a0
+[L3 / MAIN] Executing: pmp_done(), at 80000088
+[L5 / CPU] ############## fetched: f1402573 at PC 8000008c
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RS x0 x10 f14
+[L3 / MAIN] Executing: pmp_done(), at 8000008c
+[L5 / CPU] ############## fetched: 00333197 at PC 80000090
+[L5 / CPU] Instruction implemented: 17 / 0010111 / 23 / AUIPC
+[L6 / CPU] AUIPC x3 = PC + 3354624
+[L3 / MAIN] Executing: pmp_done(), at 80000090
+[L5 / CPU] ############## fetched: f3c18193 at PC 80000094
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x3 = x3 + 3900
+[L3 / MAIN] Executing: pmp_done(), at 80000094
+[L5 / CPU] ############## fetched: 000062b7 at PC 80000098
+[L5 / CPU] Instruction implemented: 37 / 0110111 / 55 / LUI
+[L6 / CPU] LUI x5 = 24576
+[L3 / MAIN] Executing: pmp_done(), at 80000098
+[L5 / CPU] ############## fetched: 3002b073 at PC 8000009c
+[L5 / CPU] Instruction implemented: 73 / 1110011 / 115 / EBREAK_ECALL_CSR
+[L6 / CPU] CSR-RC x5 x0 300
+[L3 / MAIN] Executing: pmp_done(), at 8000009c
+[L5 / CPU] ############## fetched: 00333697 at PC 800000a0
+[L5 / CPU] Instruction implemented: 17 / 0010111 / 23 / AUIPC
+[L6 / CPU] AUIPC x13 = PC + 3354624
+[L3 / MAIN] Executing: pmp_done(), at 800000a0
+[L5 / CPU] ############## fetched: f6468693 at PC 800000a4
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x13 = x13 + 3940
+[L3 / MAIN] Executing: pmp_done(), at 800000a4
+[L5 / CPU] ############## fetched: 00357717 at PC 800000a8
+[L5 / CPU] Instruction implemented: 17 / 0010111 / 23 / AUIPC
+[L6 / CPU] AUIPC x14 = PC + 3502080
+[L3 / MAIN] Executing: pmp_done(), at 800000a8
+[L5 / CPU] ############## fetched: 6ac70713 at PC 800000ac
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x14 + 1708
+[L3 / MAIN] Executing: pmp_done(), at 800000ac
+[L5 / CPU] ############## fetched: 00e6d863 at PC 800000b0
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BGE x13 x14 -> PC + 16
+[L3 / MAIN] Executing: clear_bss(), at 800000b0
+[L5 / CPU] ############## fetched: 0006a023 at PC 800000b4
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x0 -> x13 + 0
+[L7 / RAM] writing 00000000 w/ size 4 to 80334004
+[L3 / MAIN] Executing: clear_bss(), at 800000b4
+[L5 / CPU] ############## fetched: 00468693 at PC 800000b8
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x13 = x13 + 4
+[L3 / MAIN] Executing: clear_bss(), at 800000b8
+[L5 / CPU] ############## fetched: fee6cce3 at PC 800000bc
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BLT x13 x14 -> PC + 8184
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: __show_regs(), at 800020b4
+[L5 / CPU] ############## fetched: 802d9537 at PC 800020b8
+[L5 / CPU] Instruction implemented: 37 / 0110111 / 55 / LUI
+[L6 / CPU] LUI x10 = 2150469632
+[L3 / MAIN] Executing: __show_regs(), at 800020b8
+[L5 / CPU] ############## fetched: b3850513 at PC 800020bc
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x10 = x10 + 2872
+[L3 / MAIN] Executing: __show_regs(), at 800020bc
+[L5 / CPU] ############## fetched: 0016c097 at PC 800020c0
+[L5 / CPU] Instruction implemented: 17 / 0010111 / 23 / AUIPC
+[L6 / CPU] AUIPC x1 = PC + 1490944
+[L3 / MAIN] Executing: __show_regs(), at 800020c0
+[L5 / CPU] ############## fetched: d28080e7 at PC 800020c4
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016dde4
+[L3 / MAIN] Executing: _printk(), at 8016dde4
+[L5 / CPU] ############## fetched: fc010113 at PC 8016dde8
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 4032
+[L3 / MAIN] Executing: _printk(), at 8016dde8
+[L5 / CPU] ############## fetched: 00812c23 at PC 8016ddec
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x8 -> x2 + 24
+[L7 / RAM] writing 00000000 w/ size 4 to 00000fd8
+[L3 / MAIN] Executing: _printk(), at 8016ddec
+[L5 / CPU] ############## fetched: 00112e23 at PC 8016ddf0
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x1 -> x2 + 28
+[L7 / RAM] writing 800020c8 w/ size 4 to 00000fdc
+[L3 / MAIN] Executing: _printk(), at 8016ddf0
+[L5 / CPU] ############## fetched: 02010413 at PC 8016ddf4
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x8 = x2 + 32
+[L3 / MAIN] Executing: _printk(), at 8016ddf4
+[L5 / CPU] ############## fetched: 00b42223 at PC 8016ddf8
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x11 -> x8 + 4
+[L7 / RAM] writing 806651f0 w/ size 4 to 00000fe4
+[L3 / MAIN] Executing: _printk(), at 8016ddf8
+[L5 / CPU] ############## fetched: 00e42823 at PC 8016ddfc
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x14 -> x8 + 16
+[L7 / RAM] writing 80357754 w/ size 4 to 00000ff0
+[L3 / MAIN] Executing: _printk(), at 8016ddfc
+[L5 / CPU] ############## fetched: 00c42423 at PC 8016de00
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x12 -> x8 + 8
+[L7 / RAM] writing 00000000 w/ size 4 to 00000fe8
+[L3 / MAIN] Executing: _printk(), at 8016de00
+[L5 / CPU] ############## fetched: 00d42623 at PC 8016de04
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x13 -> x8 + 12
+[L7 / RAM] writing 80334008 w/ size 4 to 00000fec
+[L3 / MAIN] Executing: _printk(), at 8016de04
+[L5 / CPU] ############## fetched: 00f42a23 at PC 8016de08
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x15 -> x8 + 20
+[L7 / RAM] writing 00000000 w/ size 4 to 00000ff4
+[L3 / MAIN] Executing: _printk(), at 8016de08
+[L5 / CPU] ############## fetched: 01042c23 at PC 8016de0c
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x16 -> x8 + 24
+[L7 / RAM] writing 00000000 w/ size 4 to 00000ff8
+[L3 / MAIN] Executing: _printk(), at 8016de0c
+[L5 / CPU] ############## fetched: 01142e23 at PC 8016de10
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x17 -> x8 + 28
+[L7 / RAM] writing 00000000 w/ size 4 to 00000ffc
+[L3 / MAIN] Executing: _printk(), at 8016de10
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de14
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de14
+[L5 / CPU] ############## fetched: fef42623 at PC 8016de18
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x15 -> x8 + 6124
+[L7 / RAM] writing 00000000 w/ size 4 to 000027cc
+[L3 / MAIN] Executing: _printk(), at 8016de18
+[L5 / CPU] ############## fetched: 00000793 at PC 8016de1c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x15 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de1c
+[L5 / CPU] ############## fetched: 00440593 at PC 8016de20
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x11 = x8 + 4
+[L3 / MAIN] Executing: _printk(), at 8016de20
+[L5 / CPU] ############## fetched: feb42423 at PC 8016de24
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x11 -> x8 + 6120
+[L7 / RAM] writing 00000fe4 w/ size 4 to 000027c8
+[L3 / MAIN] Executing: _printk(), at 8016de24
+[L5 / CPU] ############## fetched: ffec7097 at PC 8016de28
+[L5 / CPU] Instruction implemented: 17 / 0010111 / 23 / AUIPC
+[L6 / CPU] AUIPC x1 = PC + -1282048
+[L3 / MAIN] Executing: _printk(), at 8016de28
+[L5 / CPU] ############## fetched: b44080e7 at PC 8016de2c
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 80034968
+[L3 / MAIN] Executing: vprintk(), at 80034968
+[L5 / CPU] ############## fetched: fe010113 at PC 8003496c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 4064
+[L3 / MAIN] Executing: vprintk(), at 8003496c
+[L5 / CPU] ############## fetched: 00812c23 at PC 80034970
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x8 -> x2 + 24
+[L7 / RAM] writing 00000fe0 w/ size 4 to 00001fb8
+[L3 / MAIN] Executing: vprintk(), at 80034970
+[L5 / CPU] ############## fetched: 00112e23 at PC 80034974
+[L5 / CPU] Instruction implemented: 23 / 0100011 / 35 / STORE
+[L6 / CPU] SW x1 -> x2 + 28
+[L7 / RAM] writing 8016de30 w/ size 4 to 00001fbc
+[L3 / MAIN] Executing: vprintk(), at 80034974
+[L5 / CPU] ############## fetched: 02010413 at PC 80034978
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x8 = x2 + 32
+[L3 / MAIN] Executing: vprintk(), at 80034978
+[L5 / CPU] ############## fetched: 00050693 at PC 8003497c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x13 = x10 + 0
+[L3 / MAIN] Executing: vprintk(), at 8003497c
+[L5 / CPU] ############## fetched: 00058713 at PC 80034980
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x11 + 0
+[L3 / MAIN] Executing: vprintk(), at 80034980
+[L5 / CPU] ############## fetched: 803277b7 at PC 80034984
+[L5 / CPU] Instruction implemented: 37 / 0110111 / 55 / LUI
+[L6 / CPU] LUI x15 = 2150789120
+[L3 / MAIN] Executing: vprintk(), at 80034984
+[L5 / CPU] ############## fetched: f687a783 at PC 80034988
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x15 + -152
+[L7 / RAM] reading from 80326f68 w/ size 4
+[L3 / MAIN] Executing: vprintk(), at 80034988
+[L5 / CPU] ############## fetched: 00079a63 at PC 8003498c
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BNE x15 x0 -> PC + 20
+[L3 / MAIN] Executing: vprintk(), at 8003498c
+[L5 / CPU] ############## fetched: 00422783 at PC 80034990
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 4
+[L7 / RAM] reading from 00000004 w/ size 4
+[L3 / MAIN] Executing: vprintk(), at 80034990
+[L5 / CPU] ############## fetched: 00f00637 at PC 80034994
+[L5 / CPU] Instruction implemented: 37 / 0110111 / 55 / LUI
+[L6 / CPU] LUI x12 = 15728640
+[L3 / MAIN] Executing: vprintk(), at 80034994
+[L5 / CPU] ############## fetched: 00c7f7b3 at PC 80034998
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] AND -> x15 = x15 & x12
+[L3 / MAIN] Executing: vprintk(), at 80034998
+[L5 / CPU] ############## fetched: 02078863 at PC 8003499c
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 48
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: vprintk(), at 800349cc
+[L5 / CPU] ############## fetched: fedff06f at PC 800349d0
+[L5 / CPU] Instruction implemented: 6f / 1101111 / 111 / JAL
+[L6 / CPU] JAL -> 800349b8
+[L3 / MAIN] Executing: vprintk(), at 800349b8
+[L5 / CPU] ############## fetched: 01c12083 at PC 800349bc
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x1 = x2 + 28
+[L7 / RAM] reading from 00001fbc w/ size 4
+[L3 / MAIN] Executing: vprintk(), at 800349bc
+[L5 / CPU] ############## fetched: 01812403 at PC 800349c0
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00001fb8 w/ size 4
+[L3 / MAIN] Executing: vprintk(), at 800349c0
+[L5 / CPU] ############## fetched: 02010113 at PC 800349c4
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 32
+[L3 / MAIN] Executing: vprintk(), at 800349c4
+[L5 / CPU] ############## fetched: 00008067 at PC 800349c8
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from 00000fcc w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00001fd8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002018 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002058 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002098 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000020d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002118 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002158 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002198 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000021d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002218 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002258 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002298 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000022d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002318 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002358 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002398 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000023d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002418 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002458 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002498 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000024d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002518 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002558 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002598 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000025d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002618 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002658 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002698 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000026d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002718 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002758 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002798 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000027d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002818 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002858 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002898 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000028d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002918 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002958 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002998 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000029d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002a18 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002a58 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002a98 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002ad8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002b18 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002b58 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002b98 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002bd8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002c18 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002c58 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002c98 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002cd8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002d18 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002d58 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002d98 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002dd8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002e18 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002e58 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002e98 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002ed8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002f18 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002f58 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002f98 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00002fd8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00003018 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00003058 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00003098 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000030d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00003118 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00003158 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00003198 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 000031d8 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L5 / CPU] ############## fetched: 01812403 at PC 8016de4c
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x8 = x2 + 24
+[L7 / RAM] reading from 00003218 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de4c
+[L5 / CPU] ############## fetched: 04010113 at PC 8016de50
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x2 = x2 + 64
+[L3 / MAIN] Executing: _printk(), at 8016de50
+[L5 / CPU] ############## fetched: 00008067 at PC 8016de54
+[L5 / CPU] Instruction implemented: 67 / 1100111 / 103 / JALR
+[L6 / CPU] JALR -> 8016de2c
+[L3 / MAIN] Executing: _printk(), at 8016de2c
+[L5 / CPU] ############## fetched: fec42703 at PC 8016de30
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x14 = x8 + -20
+[L7 / RAM] reading from -0000014 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de30
+[L5 / CPU] ############## fetched: 20022783 at PC 8016de34
+[L5 / CPU] Instruction implemented: 03 / 0000011 / 3 / LOAD
+[L6 / CPU] LW x15 = x4 + 512
+[L7 / RAM] reading from 00000200 w/ size 4
+[L3 / MAIN] Executing: _printk(), at 8016de34
+[L5 / CPU] ############## fetched: 00f747b3 at PC 8016de38
+[L5 / CPU] Instruction implemented: 33 / 0110011 / 51 / ANY_INTGR
+[L6 / CPU] XOR -> x15 = x14 ^ x15
+[L3 / MAIN] Executing: _printk(), at 8016de38
+[L5 / CPU] ############## fetched: 00000713 at PC 8016de3c
+[L5 / CPU] Instruction implemented: 13 / 0010011 / 19 / ANY_INTGR_I
+[L6 / CPU] ADDI -> x14 = x0 + 0
+[L3 / MAIN] Executing: _printk(), at 8016de3c
+[L5 / CPU] ############## fetched: 00078463 at PC 8016de40
+[L5 / CPU] Instruction implemented: 63 / 1100011 / 99 / BRANCH
+[L6 / CPU] BEQ x15 x0 -> PC + 8
+[L6 / CPU]   JUMP
+[L3 / MAIN] Executing: _printk(), at 8016de48
+[L1 / CRASH_HANDLER] -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[L1 / CRASH_HANDLER] EXCEPTION OCCURED!
+[L1 / CRASH_HANDLER] #00: 00000000,  #01: 8016de30,  #02: 00003240,  #03: 80333fcc, 
+[L1 / CRASH_HANDLER] #04: 00000000,  #05: 00006000,  #06: 00000000,  #07: 00000000, 
+[L1 / CRASH_HANDLER] #08: 00000000,  #09: 00000000,  #10: 802d9b38,  #11: 00000fe4, 
+[L1 / CRASH_HANDLER] #12: 00f00000,  #13: 802d9b38,  #14: 00000000,  #15: 00000000, 
+[L1 / CRASH_HANDLER] #16: 00000000,  #17: 00000000,  #18: 00000000,  #19: 00000000, 
+[L1 / CRASH_HANDLER] #20: 00000000,  #21: 00000000,  #22: 00000000,  #23: 00000000, 
+[L1 / CRASH_HANDLER] #24: 00000000,  #25: 00000000,  #26: 00000000,  #27: 00000000, 
+[L1 / CRASH_HANDLER] #28: 00000000,  #29: 00000000,  #30: 00000000,  #31: 00000000, 
+[L1 / CRASH_HANDLER] PC: 8016de48
+[L1 / CRASH_HANDLER] 
+[L1 / CRASH_HANDLER] File C:\Users\Valentina\risc-v\utils\logger.py line 9
+[L1 / CRASH_HANDLER] File C:\Users\Valentina\risc-v\main.py line 64
+[L1 / CRASH_HANDLER] File C:\Users\Valentina\risc-v\devices\cpu\__init__.py line 155
+[L1 / CRASH_HANDLER] File C:\Users\Valentina\risc-v\main.py line 65
+[L1 / CRASH_HANDLER] KeyboardInterrupt: 
+[L1 / CRASH_HANDLER] -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[L1 / CRASH_HANDLER] Generating crash dump...
+[L1 / CRASH_HANDLER] Saving to ./crash/
+[L1 / CRASH_HANDLER]   Writing memory dump: start=00000fd8, size=00000007, file=./crash/memory00000fd8-00000fdf.dmp
+[L1 / CRASH_HANDLER]   Left to write: 7...
+[L1 / CRASH_HANDLER]   Writing memory dump: start=00000fe4, size=0000001b, file=./crash/memory00000fe4-00000fff.dmp
+[L1 / CRASH_HANDLER]   Left to write: 27...
+[L1 / CRASH_HANDLER]   Writing memory dump: start=00001fb8, size=00000007, file=./crash/memory00001fb8-00001fbf.dmp
+[L1 / CRASH_HANDLER]   Left to write: 7...
+[L1 / CRASH_HANDLER]   Writing memory dump: start=000027c8, size=00000007, file=./crash/memory000027c8-000027cf.dmp
+[L1 / CRASH_HANDLER]   Left to write: 7...
+[L1 / CRASH_HANDLER]   Writing memory dump: start=80000000, size=00332c57, file=./crash/memory80000000-80332c57.dmp
+[L1 / CRASH_HANDLER]   Left to write: 3353687...
+[L1 / CRASH_HANDLER]   Writing memory dump: start=80334004, size=00000003, file=./crash/memory80334004-80334007.dmp
+[L1 / CRASH_HANDLER]   Left to write: 3...
+[L1 / CRASH_HANDLER]   Writing memory dump: start=806651f0, size=000005ff, file=./crash/memory806651f0-806657ef.dmp
+[L1 / CRASH_HANDLER]   Left to write: 1535...
+[L1 / CRASH_HANDLER]   All written!
+[L1 / CRASH_HANDLER] Writing logged data to ./crash/log.txt
