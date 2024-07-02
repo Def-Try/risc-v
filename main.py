@@ -7,7 +7,7 @@ from devices.memory import RAM, AddressBus
 
 from utils import logger as logr
 
-import config_linux as config
+import config as config
 #import config
 
 logger = logr.Logger(config.LOG_LEVEL)
