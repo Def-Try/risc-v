@@ -28,11 +28,11 @@ def loader(cpu_, bus_):
 def pre_cpu_start(logger):
     logger.enabled = True
 
-prevregs = []
+# prevregs = []
 def instruction_callback(logger, instruction_no):
-    global prevregs
+    # global prevregs
     logger.log(7, "MAIN", f"Executing at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}")
-    regs = [x for x in cpu.get_registers_formatted() if x not in prevregs] + [""] * 4
-    prevregs = cpu.get_registers_formatted()
+    # regs = [x for x in cpu.get_registers_formatted() if x not in prevregs] + [""] * 4
+    regs = cpu.get_registers_formatted()
     for a,b,c,d in zip(regs[::4], regs[1::4], regs[2::4], regs[3::4]):
         logger.log(1, "MAIN", f"{a} {b} {c} {d}")
