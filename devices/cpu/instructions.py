@@ -145,7 +145,7 @@ class ANY_INTGR_I(Instruction):
             return
 
         if ist == 2: # SLTI
-            val = converter.sign_extend_12_bit_value(val)
+            val = converter.interpret_as_32_bit_signed_value(converter.sign_extend_12_bit_value(val))
             logger.log(6, "CPU", f"SLTI -> x{drg} = x{srg} < {val}")
             cpu.integer_registers[drg] = \
                 1 if converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg]) < val else 0
