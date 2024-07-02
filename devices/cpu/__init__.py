@@ -61,7 +61,7 @@ class CPU:
         self.interrupts_enable = False
 
     def get_registers_formatted(self):
-        regs = [f"#{i:02d}: {reg:08x}, " for i,reg in enumerate(self.integer_registers)] + [f"{n:8}: {reg:08x}, " for n,reg in self.registers.items()] + [f"mstatus : {self.csr_read(0x300):08x}"]
+        regs = [f"#{i:02d}: {reg:08x}, " for i,reg in enumerate(self.integer_registers)] + [f"{n:8}: {reg:08x}, " for n,reg in self.registers.items() if n != "pc"] + [f"mstatus : {self.csr_read(0x300):08x}"]
         regs = regs + [" "] * 4
         return regs
 

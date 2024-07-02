@@ -1,6 +1,9 @@
 TRACEOUT_AT_PC = 0xFFFFFFFF
 TRACEOUT_AT_INO = 748620
+
 LOG_LEVEL = 6
+
+RAM_RANGE = (0x00000000, 0xFFFFFFFF)
 
 cpu, bus = None, None
 def loader(cpu_, bus_):
@@ -9,7 +12,7 @@ def loader(cpu_, bus_):
     with open("program/code.img", 'rb') as file:
         code_bytes = file.read()
     def reverseGroup(inp,k):
-        start = 0 
+        start = 0
         result = []
         while (start<len(inp)):
             if len(inp[start:])<k:
@@ -25,8 +28,11 @@ def loader(cpu_, bus_):
 def pre_cpu_start(logger):
     logger.enabled = True
 
+prevregs = []
 def instruction_callback(logger, instruction_no):
+    global prevregs
     logger.log(7, "MAIN", f"Executing at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}")
-    regs = cpu.get_registers_formatted()
+    regs = [x for x in cpu.get_registers_formatted() if x not in prevregs] + [""] * 4
+    prevregs = cpu.get_registers_formatted()
     for a,b,c,d in zip(regs[::4], regs[1::4], regs[2::4], regs[3::4]):
         logger.log(1, "MAIN", f"{a} {b} {c} {d}")

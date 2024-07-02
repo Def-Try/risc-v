@@ -7,8 +7,8 @@ from devices.memory import RAM, AddressBus
 
 from utils import logger as logr
 
-import config_linux as config
-#import config
+#import config_linux as config
+import config
 
 logger = logr.Logger(config.LOG_LEVEL)
 
@@ -26,7 +26,7 @@ def format_exception(e):
     return formatted
 
 ram = RAM(logger)
-bus = AddressBus([[0x00000000, 0xFFFFFFFF, ram]])
+bus = AddressBus([[config.RAM_RANGE[0], config.RAM_RANGE[1], ram]])
 cpu = CPU(bus, logger)
 
 config.loader(cpu, bus)

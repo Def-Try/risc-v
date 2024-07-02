@@ -23,10 +23,11 @@ class JAL(Instruction):
 
     def __call__(self, cpu, memory, logger):
         drg, val = self.args
-        next_instruction = cpu.registers["pc"] + 4
+        next_instruction = (cpu.registers["pc"] + 4) & 0xFFFFFFFF
         val = converter.interpret_as_21_bit_signed_value(val)
         cpu.registers["pc"] += val - 4
         cpu.integer_registers[drg] = next_instruction
+        cpu.registers["pc"] &= 0xFFFFFFFF
         logger.log(6, "CPU", f"JAL -> {cpu.registers['pc']:08x}(+{val})")
 
 class JALR(Instruction):
@@ -40,9 +41,9 @@ class JALR(Instruction):
 
     def __call__(self, cpu, memory, logger):
         ist, drg, srg, val = self.args
-        next_instruction = cpu.registers["pc"] + 4
+        next_instruction = (cpu.registers["pc"] + 4) & 0xFFFFFFFF
         val = converter.interpret_as_12_bit_signed_value(val)
-        cpu.registers["pc"] = cpu.integer_registers[srg] + val - 4
+        cpu.registers["pc"] = (cpu.integer_registers[srg] + val - 4) & 0xFFFFFFFF
         cpu.integer_registers[drg] = next_instruction
         logger.log(6, "CPU", f"JALR -> {cpu.registers['pc']:08x}(x{srg}+{val})")
 
@@ -418,7 +419,7 @@ class STORE(Instruction):
     def __call__(self, cpu, memory, logger):
         ist, srg1, srg2, val = self.args
         val = converter.interpret_as_12_bit_signed_value(val)
-        addr = cpu.integer_registers[srg1] + val
+        addr = (cpu.integer_registers[srg1] + val) & 0xFFFFFFFF
         data = cpu.integer_registers[srg2]
         if ist == 0: # sb
             logger.log(6, "CPU", f"SB x{srg2} -> x{srg1} + {val}")
@@ -442,7 +443,7 @@ class LOAD(Instruction):
     def __call__(self, cpu, memory, logger):
         ist, drg, srg, val = self.args
         val = converter.interpret_as_12_bit_signed_value(val)
-        addr = cpu.integer_registers[srg] + val
+        addr = (cpu.integer_registers[srg] + val) & 0xFFFFFFFF
         if ist == 0: # lb
             logger.log(6, "CPU", f"LB x{drg} = x{srg} + {val}")
             value = int.from_bytes(memory.read(addr, 1), 'little')

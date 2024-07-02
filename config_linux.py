@@ -2,7 +2,10 @@ TRACEOUT_AT_PC = 0xFFFFFFFF
 KILL_AT_PC = 0xFFFFFFFF
 TRACEOUT_AT_INO = 112481
 KILL_AT_INO = 112500
+
 LOG_LEVEL = 7
+
+RAM_RANGE = (0x80000000)
 
 def parse_linker_map_file(file_content):
     symbols = []
