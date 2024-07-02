@@ -1,11 +1,11 @@
 TRACEOUT_AT_PC = 0xFFFFFFFF
 KILL_AT_PC = 0xFFFFFFFF
-TRACEOUT_AT_INO = 112481
-KILL_AT_INO = 112500
+TRACEOUT_AT_INO = 131380
+KILL_AT_INO = 112505000
 
 LOG_LEVEL = 7
 
-RAM_RANGE = (0x80000000)
+RAM_RANGE = (0x80000000, 0xFFFFFFFF)
 
 def parse_linker_map_file(file_content):
     symbols = []
@@ -52,13 +52,13 @@ def pre_cpu_start(logger):
 _ps = ""
 def instruction_callback(logger, instruction_no):
     global _ps
-    if KILL_AT_INO <= instruction_no or KILL_AT_PC <= cpu.registers['pc']:
+    if KILL_AT_INO < instruction_no or KILL_AT_PC < cpu.registers['pc']:
         raise SystemExit(0)
     symbol = get_symbol_name(cpu.registers['pc'], symbols)
     if LOG_LEVEL < 9:
         if _ps != symbol:
             logger.enabled = True
-            logger.log(3, "MAIN", f"Executing: {symbol}, at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}")
+            logger.log(3, "MAIN", f"Executing at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}, {symbol}")
             logger.enabled = False
             _ps = symbol
         if instruction_no % 250000 == 1:
@@ -67,7 +67,8 @@ def instruction_callback(logger, instruction_no):
             logger.enabled = True
         if instruction_no % 250000 != 0 and not logger.enabled: return
     logger.enabled = True
-    logger.log(3, "MAIN", f"Executing: {symbol}, at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}")
+    logger.log(3, "MAIN", f"Executing at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}, {symbol}")
     regs = cpu.get_registers_formatted()
     for a,b,c,d in zip(regs[::4], regs[1::4], regs[2::4], regs[3::4]):
         logger.log(1, "MAIN", f"{a} {b} {c} {d}")
+#    input("Press ENTER to step")

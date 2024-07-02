@@ -103,6 +103,16 @@ class CPU:
         else:
             self.registers[regname] = data
 
+    def int_read(self, n):
+        return self.integer_registers[n]
+
+    def int_write(self, n, v):
+#        if n in [10, 12]:
+#            o = self.logger.enabled; self.logger.enabled = True
+#            self.logger.log(4, "CPU", f"Register write: x{n}: {self.int_read(n):08x} -> {v:08x}")
+#            self.logger.enabled = o
+        self.integer_registers[n] = v % 0xFFFFFFFF
+
     def get_instruction(self, instn):
         for instruction in self.__instructions:
             if instruction.instn != instn: continue
@@ -112,7 +122,6 @@ class CPU:
 
     def fetch_instruction(self):
         fetched = int.from_bytes(self.memory.read(self.registers["pc"], 2), 'little')
-
         inst_size = 16
 
         if fetched & 0b1111111 == 0b1111111:   # (80+16*nnn)-bit instruction
@@ -121,7 +130,7 @@ class CPU:
                 raise NotImplementedError(f"Instruction size not implemented: {fetched:04x} / {fetched:16b}")
             x = (fetched >> 7) & 0b11111
             inst_size = bits = 80+16*n
-            fetched = int.from_bytes(self.memory.read(self.registers["pc"], int(bits / 8)), 'little')
+            fetched = int.from_bytes(self.memory.read(self.registers["pc"], bits // 8), 'little')
         elif fetched & 0b1111111 == 0b0111111: # 64 bit instruction
             fetched = int.from_bytes(self.memory.read(self.registers["pc"], 8), 'little')
             inst_size = 64
@@ -140,12 +149,9 @@ class CPU:
         else:
             raise NotImplementedError(f"Instruction format not implemented: {fetched:016x} / inst_s {inst_size}")
 
-#        saved_pc = self.registers["pc"]
-        ret = self.get_instruction(instruction)(fetched)
-        self.registers["pc"] += inst_size // 8
-#        if self.registers["pc"] != saved_pc:
-#            return ret
-        return ret
+        inst = self.get_instruction(instruction)(fetched)
+        inst.inst_size = inst_size
+        return inst
 
     def run(self, instruction_cb):
         graceful_exit = False
@@ -153,11 +159,13 @@ class CPU:
             instruction = self.fetch_instruction()
             if not instruction.valid(): break
             try:
-                instruction(self, self.memory, self.logger)
+                instruction_cb()
+                jumped_pc = instruction(self, self.memory, self.logger)
                 self.integer_registers[0] = 0
                 for i in range(len(self.integer_registers)):
                     self.integer_registers[i] = self.integer_registers[i] & 0xFFFFFFFF
-                instruction_cb()
+                if not jumped_pc:
+                    self.registers["pc"] += instruction.inst_size // 8
             except:
                 self.integer_registers[0] = 0
                 for i in range(len(self.integer_registers)):
