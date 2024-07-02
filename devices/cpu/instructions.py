@@ -27,8 +27,7 @@ class JAL(Instruction):
         val = converter.interpret_as_21_bit_signed_value(val)
         cpu.registers["pc"] += val - 4
         cpu.integer_registers[drg] = next_instruction
-
-        logger.log(6, "CPU", f"JAL -> {cpu.registers['pc']:08x}")
+        logger.log(6, "CPU", f"JAL -> {cpu.registers['pc']:08x}(+{val})")
 
 class JALR(Instruction):
     instn = 0b1100111
@@ -45,7 +44,6 @@ class JALR(Instruction):
         val = converter.interpret_as_12_bit_signed_value(val)
         cpu.registers["pc"] = cpu.integer_registers[srg] + val - 4
         cpu.integer_registers[drg] = next_instruction
-
         logger.log(6, "CPU", f"JALR -> {cpu.registers['pc']:08x}")
 
 class EBREAK_ECALL_CSR(Instruction):
@@ -98,6 +96,13 @@ class EBREAK_ECALL_CSR(Instruction):
             logger.log(6, "CPU", f"CSR-RWI {srg} x{drg} {val:03x}")
             cur_val = cpu.csr_read(val)
             new_val = srg
+            cpu.csr_write(val, new_val)
+            cpu.integer_registers[drg] = cur_val
+            return
+        if ist == 7:
+            logger.log(6, "CPU", f"CSR-RCI {srg} x{drg} {val:03x}")
+            cur_val = cpu.csr_read(val)
+            new_val = cur_val & (~srg)
             cpu.csr_write(val, new_val)
             cpu.integer_registers[drg] = cur_val
             return
@@ -165,14 +170,14 @@ class ANY_INTGR_I(Instruction):
                 return
 
         if ist == 6: # ORI
-            val = sign_extend_12_bit_value(val)
+            val = converter.sign_extend_12_bit_value(val)
             logger.log(6, "CPU", f"ORI -> x{drg} = x{srg} | {val}")
             cpu.integer_registers[drg] = \
                 cpu.integer_registers[srg] | val
             return
 
         if ist == 7: # ANDI
-            val = sign_extend_12_bit_value(val)
+            val = converter.sign_extend_12_bit_value(val)
             logger.log(6, "CPU", f"ANDI -> x{drg} = x{srg} & {val}")
             cpu.integer_registers[drg] = \
                 cpu.integer_registers[srg] & val
@@ -234,7 +239,7 @@ class ANY_INTGR(Instruction):
                     cpu.integer_registers[srg1] & cpu.integer_registers[srg2]
                 return
             raise NotImplementedError(f"SUBSUBInstruction of {ins2:02x} not implemented: {ist1:02x} / {ist1:07b} / {ist1}")
-        if ist2 == 1:
+        if ist2 == 0x01:
             if ist1 == 0:
                 logger.log(6, "CPU", f"MUL -> x{drg} = x{srg1} * x{srg2}")
                 cpu.integer_registers[drg] = \
@@ -257,9 +262,51 @@ class ANY_INTGR(Instruction):
                 #if converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]) == 0:
                 #    cpu.integer_registers[drg] = 0xFFFFFFFF
                 #    return
+                if converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]) == -1:
+                    cpu.integer_registers[drg] = 0
+                    return
                 cpu.integer_registers[drg] = converter.convert_to_32_bit_unsigned_value(
                     converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) \
                         // converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]))
+                return
+            if ist1 == 5:
+                logger.log(6, "CPU", f"DIVU -> x{drg} = x{srg1} / x{srg2}")
+                if cpu.integer_registers[srg2] == 0:
+                    cpu.integer_registers[drg] = 0xFFFFFFFF
+                    return
+                cpu.integer_registers[drg] = cpu.integer_registers[srg1] // cpu.integer_registers[srg2]
+                return
+            if ist1 == 6:
+                logger.log(6, "CPU", f"REM -> x{drg} = x{srg1} / x{srg2}")
+                if converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]) == 0:
+                    cpu.integer_registers[drg] = 0xFFFFFFFF
+                    return
+                if converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]) == -1:
+                    cpu.integer_registers[drg] = -1
+                    return
+                cpu.integer_registers[drg] = converter.convert_to_32_bit_unsigned_value(
+                    converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) \
+                        % converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2]))
+                return
+            if ist1 == 7:
+                logger.log(6, "CPU", f"REMU -> x{drg} = x{srg1} / x{srg2}")
+                if cpu.integer_registers[srg2] == 0:
+                    cpu.integer_registers[drg] = 0xFFFFFFFF
+                    return
+                cpu.integer_registers[drg] = cpu.integer_registers[srg1] % cpu.integer_registers[srg2]
+                return
+            raise NotImplementedError(f"SUBSUBInstruction of {ist2:02x} not implemented: {ist1:02x} / {ist1:07b} / {ist1}")
+        if ist2 == 0x20:
+            if ist1 == 0:
+                logger.log(6, "CPU", f"SUB -> x{drg} = x{srg1} - x{srg2}")
+                cpu.integer_registers[drg] = \
+                    converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) \
+                        * converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg2])
+                return
+            if ist1 == 5:
+                logger.log(6, "CPU", f"SRA -> x{drg} = x{srg1} >> x{srg2}")
+                cpu.integer_registers[drg] = \
+                    converter.interpret_as_32_bit_signed_value(cpu.integer_registers[srg1]) >> (cpu.integer_registers[srg2] & 0x1F)
                 return
             raise NotImplementedError(f"SUBSUBInstruction of {ist2:02x} not implemented: {ist1:02x} / {ist1:07b} / {ist1}")
         raise NotImplementedError(f"SUBInstruction not implemented: {ist2:02x} / {ist2:07b} / {ist2}")
@@ -310,42 +357,42 @@ class BRANCH(Instruction):
 
         if ist == 0: # beq
             if uv1 == uv2:
-                cpu.registers["pc"] += jmp - 4
+                cpu.registers["pc"] += jmp
                 logger.log(6, "CPU", f"BEQ x{srg1}({uv1}) == x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BEQ x{srg1}({uv1}) == x{srg2}({uv2}) -/> PC + {jmp}")
             return
         if ist == 1: # bne
             if uv1 != uv2:
-                cpu.registers["pc"] += jmp - 4
+                cpu.registers["pc"] += jmp
                 logger.log(6, "CPU", f"BNE x{srg1}({uv1}) != x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BNE x{srg1}({uv1}) != x{srg2}({uv2}) -/> PC + {jmp}")
             return
         if ist == 4: # blt
             if sv1 < sv2:
-                cpu.registers["pc"] += jmp - 4
+                cpu.registers["pc"] += jmp
                 logger.log(6, "CPU", f"BLT x{srg1}({sv1}) < x{srg2}({sv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BLT x{srg1}({sv1}) < x{srg2}({sv2}) -/> PC + {jmp}")
             return
         if ist == 5: # bge
             if sv1 >= sv2:
-                cpu.registers["pc"] += jmp - 4
+                cpu.registers["pc"] += jmp
                 logger.log(6, "CPU", f"BGE x{srg1}({sv1}) >= x{srg2}({sv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BGE x{srg1}({sv1}) >= x{srg2}({sv2}) -/> PC + {jmp}")
             return
         if ist == 6: # bltu
             if uv1 < uv2:
-                cpu.registers["pc"] += jmp - 4
+                cpu.registers["pc"] += jmp
                 logger.log(6, "CPU", f"BLTU x{srg1}({uv1}) < x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BLTU x{srg1}({uv1}) < x{srg2}({uv2}) -/> PC + {jmp}")
             return
         if ist == 7: # bgeu
             if uv1 >= uv2:
-                cpu.registers["pc"] += jmp - 4
+                cpu.registers["pc"] += jmp
                 logger.log(6, "CPU", f"BGEU x{srg1}({uv1}) >= x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BGEU x{srg1}({uv1}) >= x{srg2}({uv2}) -/> PC + {jmp}")
@@ -368,13 +415,13 @@ class STORE(Instruction):
         data = cpu.integer_registers[srg2]
         if ist == 0: # sb
             logger.log(6, "CPU", f"SB x{srg2} -> x{srg1} + {val}")
-            memory.write(addr, (data & 0xFF).to_bytes(1))
+            memory.write(addr, (data & 0xFF).to_bytes(1, 'little'))
         if ist == 1: # sh
             logger.log(6, "CPU", f"SH x{srg2} -> x{srg1} + {val}")
-            memory.write(addr, (data & 0xFFFF).to_bytes(2))
+            memory.write(addr, (data & 0xFFFF).to_bytes(2, 'little'))
         if ist == 2: # sw
             logger.log(6, "CPU", f"SW x{srg2} -> x{srg1} + {val}")
-            memory.write(addr, (data & 0xFFFFFFFF).to_bytes(4))
+            memory.write(addr, (data & 0xFFFFFFFF).to_bytes(4, 'little'))
 
 class LOAD(Instruction):
     instn = 0b0000011
@@ -391,33 +438,33 @@ class LOAD(Instruction):
         addr = cpu.integer_registers[srg] + val
         if ist == 0: # lb
             logger.log(6, "CPU", f"LB x{drg} = x{srg} + {val}")
-            value = int.from_bytes(memory.read(addr, 1))
+            value = int.from_bytes(memory.read(addr, 1), 'little')
             if value & 0b10000000 != 0:
                 value = value | 0xFFFFFF00
             cpu.integer_registers[drg] = value
         if ist == 1: # lh
             logger.log(6, "CPU", f"LH x{drg} = x{srg} + {val}")
-            value = int.from_bytes(memory.read(addr, 2))
+            value = int.from_bytes(memory.read(addr, 2), 'little')
             if value & 0x8000 != 0:
                 value = value | 0xFFFF0000
             cpu.integer_registers[drg] = value
         if ist == 2: # lw
             logger.log(6, "CPU", f"LW x{drg} = x{srg} + {val}")
-            value = int.from_bytes(memory.read(addr, 4))
+            value = int.from_bytes(memory.read(addr, 4), 'little')
             cpu.integer_registers[drg] = value
         if ist == 3: # lbu
             logger.log(6, "CPU", f"LBU x{drg} = x{srg} + {val}")
-            value = int.from_bytes(memory.read(addr, 1))
+            value = int.from_bytes(memory.read(addr, 1), 'little')
             cpu.integer_registers[drg] = value
         if ist == 4: # lhu
             logger.log(6, "CPU", f"LHU x{drg} = x{srg} + {val}")
-            value = int.from_bytes(memory.read(addr, 2))
+            value = int.from_bytes(memory.read(addr, 2), 'little')
             cpu.integer_registers[drg] = value
 
 class ANY_ATOMIC(Instruction):
     instn = 0b0101111
     def __init__(self, fetched: bytes) -> None:
-        ist, ist2, srg1, srg2, drg = Decoder.decode_R_type(fetched)
+        ist, ist2, srg1, srg2, drg = Decoder.decode_R_type_atomic(fetched)
         super().__init__(self.instn, [ist, ist2, srg1, srg2, drg])
 
     def valid(self):
@@ -426,54 +473,56 @@ class ANY_ATOMIC(Instruction):
     def __call__(self, cpu, memory, logger):
         ist, ist2, srg1, srg2, drg = self.args
         if ist != 0x02: raise ValueError("atomic invalid")
-        if self.args[1] == 0x00:
-            logger.log(6, "CPU", f"amoadd.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = memory.get(cpu.integer_registers[self.args[2]]) + cpu.integer_registers[self.args[3]]
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[4]])
+        if ist2 == 0x00:
+            logger.log(6, "CPU", f"amoadd.w x{srg1} x{srg2} {drg}")
+            cur_val = int.from_bytes(memory.read(cpu.integer_registers[srg1], 4), 'little')
+            new_val = cur_val + cpu.integer_registers[srg2]
+            cpu.integer_registers[drg] = cur_val
+            memory.write(cpu.integer_registers[srg1], new_val.to_bytes(4, 'little'))
             return
-        if self.args[1] == 0x01:
-            logger.log(6, "CPU", f"amoswap.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = memory.get(cpu.integer_registers[self.args[2]])
-            cpu.integer_registers[self.args[4]], cpu.integer_registers[self.args[3]] = cpu.integer_registers[self.args[3]], cpu.integer_registers[self.args[4]]
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[4]])
+        if ist2 == 0x01:
+            logger.log(6, "CPU", f"amoswap.w x{srg1} x{srg2} {drg}")
+            cur_val = int.from_bytes(memory.read(cpu.integer_registers[srg1], 4), 'little')
+            new_val = cpu.integer_registers[srg2]
+            cpu.integer_registers[drg] = cur_val
+            memory.write(cpu.integer_registers[srg1], new_val.to_bytes(4, 'little'))
             return
-        if self.args[1] == 0x02:
-            logger.log(6, "CPU", f"lr.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = memory.get(cpu.integer_registers[self.args[2]])
-            cpu.reserved = cpu.integer_registers[self.args[2]]
+        if ist2 == 0x02:
+            logger.log(6, "CPU", f"ld.w x{srg1} x{srg2} {drg}")
+            cur_val = int.from_bytes(memory.read(cpu.integer_registers[srg1], 4), 'little')
+            cpu.integer_registers[drg] = cur_val
+            cpu.reserved = cpu.integer_registers[srg1]
             return
-        if self.args[1] == 0x03:
-            logger.log(6, "CPU", f"sc.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            if cpu.reserved != cpu.integer_registers[self.args[2]]:
-                cpu.integer_registers[self.args[4]] = 1
+        if ist2 == 0x03:
+            logger.log(6, "CPU", f"sc.w x{srg1} x{srg2} {drg}")
+            if cpu.reserved != cpu.integer_registers[srg1]:
+                cpu.integer_registers[drg] = 1
+                cpu.reserved = -1
                 return
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[3]])
-            cpu.integer_registers[self.args[4]] = 0
+            memory.write(cpu.integer_registers[srg1], cpu.integer_registers[srg2].to_bytes(4, 'little'))
+            cpu.integer_registers[drg] = 0
+            cpu.reserved = -1
             return
-        if self.args[1] == 0x04:
-            logger.log(6, "CPU", f"amoxor.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = memory.get(cpu.integer_registers[self.args[2]]) ^ cpu.integer_registers[self.args[3]]
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[4]])
+        if ist2 == 0x04:
+            logger.log(6, "CPU", f"amoxor.w x{srg1} x{srg2} {drg}")
+            cur_val = int.from_bytes(memory.read(cpu.integer_registers[srg1], 4), 'little')
+            new_val = cur_val ^ cpu.integer_registers[srg2]
+            cpu.integer_registers[drg] = cur_val
+            memory.write(cpu.integer_registers[srg1], new_val.to_bytes(4, 'little'))
             return
-        if self.args[1] == 0x08:
-            logger.log(6, "CPU", f"amoor.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = memory.get(cpu.integer_registers[self.args[2]]) | cpu.integer_registers[self.args[3]]
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[4]])
+        if ist2 == 0x08:
+            logger.log(6, "CPU", f"amoor.w x{srg1} x{srg2} {drg}")
+            cur_val = int.from_bytes(memory.read(cpu.integer_registers[srg1], 4), 'little')
+            new_val = cur_val | cpu.integer_registers[srg2]
+            cpu.integer_registers[drg] = cur_val
+            memory.write(cpu.integer_registers[srg1], new_val.to_bytes(4, 'little'))
             return
-        if self.args[1] == 0x0C:
-            logger.log(6, "CPU", f"amoand.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = memory.get(cpu.integer_registers[self.args[2]]) & cpu.integer_registers[self.args[3]]
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[4]])
-            return
-        if self.args[1] == 0x10:
-            logger.log(6, "CPU", f"amomin.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = min(memory.get(cpu.integer_registers[self.args[2]]), cpu.integer_registers[self.args[3]])
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[4]])
-            return
-        if self.args[1] == 0x14:
-            logger.log(6, "CPU", f"amomax.w x{self.args[2]} x{self.args[3]} {self.args[4]}")
-            cpu.integer_registers[self.args[4]] = max(memory.get(cpu.integer_registers[self.args[2]]), cpu.integer_registers[self.args[3]])
-            memory.put(cpu.integer_registers[self.args[2]], cpu.integer_registers[self.args[4]])
+        if ist2 == 0x0C:
+            logger.log(6, "CPU", f"amoxor.w x{srg1} x{srg2} {drg}")
+            cur_val = int.from_bytes(memory.read(cpu.integer_registers[srg1], 4), 'little')
+            new_val = cur_val & cpu.integer_registers[srg2]
+            cpu.integer_registers[drg] = cur_val
+            memory.write(cpu.integer_registers[srg1], new_val.to_bytes(4, 'little'))
             return
 
         raise NotImplementedError(f"SUBInstruction not implemented: {ist2:02x} / {ist2:07b} / {ist2}")

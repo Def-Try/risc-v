@@ -1,4 +1,6 @@
 import sys
+import os
+import zipfile
 from math import ceil
 from devices.cpu import CPU
 from devices.memory import RAM, AddressBus
@@ -75,7 +77,7 @@ try:
             ps = symbol
         if i % 250000 == 1:
             logger.enabled = False
-        if cpu.registers['pc'] >= config.TRACEOUT_AT_PC:
+        if cpu.registers['pc'] >= config.TRACEOUT_AT_PC or i >= config.TRACEOUT_AT_INO:
             logger.enabled = True
         if i % 250000 != 0 and not logger.enabled: return
         logger.enabled = True
@@ -86,7 +88,8 @@ except BaseException as e:
     logger.enabled = True
     logger.log(1, "CRASH_HANDLER", "-="*40+"-")
     logger.log(1, "CRASH_HANDLER", "EXCEPTION OCCURED!")
-    regs = [f"#{i:02d}: {reg:08x}, " for i,reg in enumerate(cpu.integer_registers)]
+    regs = [f"#{i:02d}: {reg:08x}, " for i,reg in enumerate(cpu.integer_registers)] + [f"{n:8}: {reg:08x}, " for n,reg in cpu.registers.items()] + [f"mstatus : {cpu.csr_read(0x300):08x}"]
+    regs = regs + [" "] * 4
     for a,b,c,d in zip(regs[::4], regs[1::4], regs[2::4], regs[3::4]):
         logger.log(1, "CRASH_HANDLER", f"{a} {b} {c} {d}")
     logger.log(1, "CRASH_HANDLER", f"PC: {cpu.registers['pc']:08x}")
@@ -99,7 +102,16 @@ except BaseException as e:
         logger.log(1, "CRASH_HANDLER", _)
     logger.log(1, "CRASH_HANDLER", "-="*40+"-")
     logger.log(1, "CRASH_HANDLER", "Generating crash dump...")
-    saveto = "./crash/"
+    saveto = "crash/"
+    if not os.path.exists(saveto):
+        os.makedirs(saveto)
+    for filename in os.listdir(saveto):
+        file_path = os.path.join(saveto, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
     logger.log(1, "CRASH_HANDLER", f"Saving to {saveto}")
     def find_continuous_sequences(lst):
         sequences = []
@@ -111,23 +123,28 @@ except BaseException as e:
             else:
                 current_sequence.append(value)
         return sequences
-    for region in find_continuous_sequences(sorted(list(ram.memory.keys()))):
-        # print(min(region), max(region))
-        # continue
-        start = min(region)
-        size = max(region) - start
-        filename = f"{saveto}memory{start:08x}-{start+size:08x}.dmp"
-        logger.log(1, "CRASH_HANDLER", f"  Writing memory dump: start={start:08x}, size={size:08x}, file={filename}")
-        with open(filename, 'wb') as memdump:
-            left = size
-            got = 0
-            while left > 0:
-                logger.log(1, "CRASH_HANDLER", f"  Left to write: {left}...")
-                memdump.write(bus.read(start+got, min(left, 1024*1024*16)))
-                left -= 1024*1024*16
-                got += 1024*1024*16
-    logger.log(1, "CRASH_HANDLER", "  All written!")
-    filename = f"{saveto}log.txt"
-    logger.log(1, "CRASH_HANDLER", f"Writing logged data to {filename}")
-    with open(filename, 'w', encoding='utf-8') as log:
-        log.write(logger.textlog)
+
+    with zipfile.ZipFile(f'{saveto}crashdump.zip', 'w') as dumpzip:
+        for region in find_continuous_sequences(sorted(list(ram.memory.keys()))):
+            start = min(region)
+            size = max(region) - start
+            filename = f"{saveto}memory{start:08x}-{start+size:08x}.dmp"
+            logger.log(1, "CRASH_HANDLER", f"  Writing memory dump: start={start:08x}, size={size:08x}, file={filename}")
+            with open(filename, 'wb') as memdump:
+                with dumpzip.open(filename, 'w') as memdumpzip:
+                    left = size
+                    got = 0
+                    while left > 0:
+                        logger.log(1, "CRASH_HANDLER", f"  Left to write: {left}...")
+                        memdump.write(bus.read(start+got, min(left, 1024*1024)))
+                        memdumpzip.write(bus.read(start+got, min(left, 1024*1024)))
+                        left -= 1024*1024
+                        got += 1024*1024
+        logger.log(1, "CRASH_HANDLER", "  All written!")
+        filename = f"{saveto}log.txt"
+        logger.log(1, "CRASH_HANDLER", f"Writing logged data to {filename}")
+        with open(filename, 'w', encoding='utf-8') as log:
+            with dumpzip.open(filename, 'w') as logzip:
+                log.write(logger.textlog)
+                logzip.write(logger.textlog.encode())
+
