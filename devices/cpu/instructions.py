@@ -452,11 +452,11 @@ class LOAD(Instruction):
             logger.log(6, "CPU", f"LW x{drg} = x{srg} + {val}")
             value = int.from_bytes(memory.read(addr, 4), 'little')
             cpu.integer_registers[drg] = value
-        if ist == 3: # lbu
+        if ist == 4: # lbu
             logger.log(6, "CPU", f"LBU x{drg} = x{srg} + {val}")
             value = int.from_bytes(memory.read(addr, 1), 'little')
             cpu.integer_registers[drg] = value
-        if ist == 4: # lhu
+        if ist == 5: # lhu
             logger.log(6, "CPU", f"LHU x{drg} = x{srg} + {val}")
             value = int.from_bytes(memory.read(addr, 2), 'little')
             cpu.integer_registers[drg] = value

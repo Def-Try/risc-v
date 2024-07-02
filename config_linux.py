@@ -1,5 +1,5 @@
 TRACEOUT_AT_PC = 0xFFFFFFFF
-TRACEOUT_AT_INO = 112490
+TRACEOUT_AT_INO = 112488
 LOG_LEVEL = 7
 
 def parse_linker_map_file(file_content):
@@ -61,3 +61,6 @@ def instruction_callback(logger, instruction_no):
         if instruction_no % 250000 != 0 and not logger.enabled: return
     logger.enabled = True
     logger.log(3, "MAIN", f"Executing: {symbol}, at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}")
+    regs = cpu.get_registers_formatted()
+    for a,b,c,d in zip(regs[::4], regs[1::4], regs[2::4], regs[3::4]):
+        logger.log(1, "MAIN", f"{a} {b} {c} {d}")

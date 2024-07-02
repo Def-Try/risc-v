@@ -60,12 +60,13 @@ class CPU:
         self.previous_interrupts_enable = False
         self.interrupts_enable = False
 
+    def get_registers_formatted(self):
+        regs = [f"#{i:02d}: {reg:08x}, " for i,reg in enumerate(self.integer_registers)] + [f"{n:8}: {reg:08x}, " for n,reg in self.registers.items()] + [f"mstatus : {self.csr_read(0x300):08x}"]
+        regs = regs + [" "] * 4
+        return regs
+
     def csr_read(self, address):
         regname = self.register_ids.get(address, "NONE")
-        ole = self.logger.enabled
-        self.logger.enabled = True
-        self.logger.log(3, "CPU", f"CSR read from: {address:03x} ({regname})")
-        self.logger.enabled = ole
         if regname == "NONE": return 0
         if self.hardwires.get(regname): return self.hardwires[regname]
         if regname == "mstatus":
@@ -81,10 +82,6 @@ class CPU:
 
     def csr_write(self, address, data):
         regname = self.register_ids.get(address, "NONE")
-        ole = self.logger.enabled
-        self.logger.enabled = True
-        self.logger.log(3, "CPU", f"CSR write to: {address:03x} ({regname}), data={data:08x}")
-        self.logger.enabled = ole
         if regname == "NONE": return
         if regname == "hvc0": print(chr(data), end='', flush=True)
         if self.hardwires.get(regname): return

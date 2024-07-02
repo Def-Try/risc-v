@@ -27,3 +27,6 @@ def pre_cpu_start(logger):
 
 def instruction_callback(logger, instruction_no):
     logger.log(7, "MAIN", f"Executing at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}")
+    regs = cpu.get_registers_formatted()
+    for a,b,c,d in zip(regs[::4], regs[1::4], regs[2::4], regs[3::4]):
+        logger.log(1, "MAIN", f"{a} {b} {c} {d}")

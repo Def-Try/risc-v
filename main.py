@@ -8,6 +8,7 @@ from devices.memory import RAM, AddressBus
 from utils import logger as logr
 
 import config_linux as config
+#import config
 
 logger = logr.Logger(config.LOG_LEVEL)
 
@@ -25,7 +26,7 @@ def format_exception(e):
     return formatted
 
 ram = RAM(logger)
-bus = AddressBus([[0x80000000, 0xFFFFFFFF, ram]])
+bus = AddressBus([[0x00000000, 0xFFFFFFFF, ram]])
 cpu = CPU(bus, logger)
 
 config.loader(cpu, bus)
@@ -41,8 +42,7 @@ except BaseException as e:
     logger.enabled = True
     logger.log(1, "CRASH_HANDLER", "-="*40+"-")
     logger.log(1, "CRASH_HANDLER", "EXCEPTION OCCURED!")
-    regs = [f"#{i:02d}: {reg:08x}, " for i,reg in enumerate(cpu.integer_registers)] + [f"{n:8}: {reg:08x}, " for n,reg in cpu.registers.items()] + [f"mstatus : {cpu.csr_read(0x300):08x}"]
-    regs = regs + [" "] * 4
+    regs = cpu.get_registers_formatted()
     for a,b,c,d in zip(regs[::4], regs[1::4], regs[2::4], regs[3::4]):
         logger.log(1, "CRASH_HANDLER", f"{a} {b} {c} {d}")
     logger.log(1, "CRASH_HANDLER", f"PC: {cpu.registers['pc']:08x}")
