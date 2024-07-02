@@ -140,11 +140,11 @@ class CPU:
         else:
             raise NotImplementedError(f"Instruction format not implemented: {fetched:016x} / inst_s {inst_size}")
 
-        saved_pc = self.registers["pc"]
+#        saved_pc = self.registers["pc"]
         ret = self.get_instruction(instruction)(fetched)
-        if self.registers["pc"] != saved_pc:
-            return ret
         self.registers["pc"] += inst_size // 8
+#        if self.registers["pc"] != saved_pc:
+#            return ret
         return ret
 
     def run(self, instruction_cb):

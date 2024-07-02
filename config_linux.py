@@ -1,5 +1,7 @@
 TRACEOUT_AT_PC = 0xFFFFFFFF
-TRACEOUT_AT_INO = 112488
+KILL_AT_PC = 0xFFFFFFFF
+TRACEOUT_AT_INO = 112481
+KILL_AT_INO = 112500
 LOG_LEVEL = 7
 
 def parse_linker_map_file(file_content):
@@ -47,6 +49,8 @@ def pre_cpu_start(logger):
 _ps = ""
 def instruction_callback(logger, instruction_no):
     global _ps
+    if KILL_AT_INO <= instruction_no or KILL_AT_PC <= cpu.registers['pc']:
+        raise SystemExit(0)
     symbol = get_symbol_name(cpu.registers['pc'], symbols)
     if LOG_LEVEL < 9:
         if _ps != symbol:
