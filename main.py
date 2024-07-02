@@ -9,7 +9,7 @@ from utils import logger as logr
 
 import config
 
-logger = logr.Logger(7)
+logger = logr.Logger(config.LOG_LEVEL)
 
 def trace_exc(trace):
     traceback = ""
@@ -70,19 +70,20 @@ try:
         global i,ps
         i += 1
         symbol = get_symbol_name(cpu.registers['pc'], symbols)
-        if ps != symbol:
-            logger.enabled = True
-            logger.log(3, "MAIN", f"Executing: {symbol}, at {cpu.registers['pc']:08x}, Instruction no is {i}")
-            logger.enabled = False
-            ps = symbol
-        if i % 250000 == 1:
-            logger.enabled = False
-        if cpu.registers['pc'] >= config.TRACEOUT_AT_PC or i >= config.TRACEOUT_AT_INO:
-            logger.enabled = True
-        if i % 250000 != 0 and not logger.enabled: return
+        if config.LOG_LEVEL < 9:
+            if ps != symbol:
+                logger.enabled = True
+                logger.log(3, "MAIN", f"Executing: {symbol}, at {cpu.registers['pc']:08x}, Instruction no is {i}")
+                logger.enabled = False
+                ps = symbol
+            if i % 250000 == 1:
+                logger.enabled = False
+            if cpu.registers['pc'] >= config.TRACEOUT_AT_PC or i >= config.TRACEOUT_AT_INO:
+                logger.enabled = True
+            if i % 250000 != 0 and not logger.enabled: return
         logger.enabled = True
         logger.log(3, "MAIN", f"Executing: {symbol}, at {cpu.registers['pc']:08x}, Instruction no is {i}")
-    logger.enabled = False
+    logger.enabled = config.LOG_LEVEL >= 9
     print(cpu.run(callback))
 except BaseException as e:
     logger.enabled = True

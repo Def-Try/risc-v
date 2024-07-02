@@ -324,7 +324,7 @@ class AUIPC(Instruction):
         drg, val = self.args
         val = converter.interpret_as_20_bit_signed_value(val)
         cpu.integer_registers[drg] = cpu.registers["pc"] + (val << 12)
-        logger.log(6, "CPU", f"AUIPC x{drg} = PC + {val << 12}")
+        logger.log(6, "CPU", f"AUIPC x{drg} = PC + {val}")
 
 class LUI(Instruction):
     instn = 0b0110111
@@ -357,42 +357,42 @@ class BRANCH(Instruction):
 
         if ist == 0: # beq
             if uv1 == uv2:
-                cpu.registers["pc"] += jmp
+                cpu.registers["pc"] += jmp - 4
                 logger.log(6, "CPU", f"BEQ x{srg1}({uv1}) == x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BEQ x{srg1}({uv1}) == x{srg2}({uv2}) -/> PC + {jmp}")
             return
         if ist == 1: # bne
             if uv1 != uv2:
-                cpu.registers["pc"] += jmp
+                cpu.registers["pc"] += jmp - 4
                 logger.log(6, "CPU", f"BNE x{srg1}({uv1}) != x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BNE x{srg1}({uv1}) != x{srg2}({uv2}) -/> PC + {jmp}")
             return
         if ist == 4: # blt
             if sv1 < sv2:
-                cpu.registers["pc"] += jmp
+                cpu.registers["pc"] += jmp - 4
                 logger.log(6, "CPU", f"BLT x{srg1}({sv1}) < x{srg2}({sv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BLT x{srg1}({sv1}) < x{srg2}({sv2}) -/> PC + {jmp}")
             return
         if ist == 5: # bge
             if sv1 >= sv2:
-                cpu.registers["pc"] += jmp
+                cpu.registers["pc"] += jmp - 4
                 logger.log(6, "CPU", f"BGE x{srg1}({sv1}) >= x{srg2}({sv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BGE x{srg1}({sv1}) >= x{srg2}({sv2}) -/> PC + {jmp}")
             return
         if ist == 6: # bltu
             if uv1 < uv2:
-                cpu.registers["pc"] += jmp
+                cpu.registers["pc"] += jmp - 4
                 logger.log(6, "CPU", f"BLTU x{srg1}({uv1}) < x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BLTU x{srg1}({uv1}) < x{srg2}({uv2}) -/> PC + {jmp}")
             return
         if ist == 7: # bgeu
             if uv1 >= uv2:
-                cpu.registers["pc"] += jmp
+                cpu.registers["pc"] += jmp - 4
                 logger.log(6, "CPU", f"BGEU x{srg1}({uv1}) >= x{srg2}({uv2}) --> PC + {jmp}")
             else:
                 logger.log(6, "CPU", f"BGEU x{srg1}({uv1}) >= x{srg2}({uv2}) -/> PC + {jmp}")
