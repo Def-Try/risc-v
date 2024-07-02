@@ -44,7 +44,7 @@ class JALR(Instruction):
         val = converter.interpret_as_12_bit_signed_value(val)
         cpu.registers["pc"] = cpu.integer_registers[srg] + val - 4
         cpu.integer_registers[drg] = next_instruction
-        logger.log(6, "CPU", f"JALR -> {cpu.registers['pc']:08x}")
+        logger.log(6, "CPU", f"JALR -> {cpu.registers['pc']:08x}(x{srg}+{val})")
 
 class EBREAK_ECALL_CSR(Instruction):
     instn = 0b1110011
@@ -402,7 +402,7 @@ class BRANCH(Instruction):
 class STORE(Instruction):
     instn = 0b0100011
     def __init__(self, fetched: bytes) -> None:
-        ist, srg1, srg2, val = Decoder.decode_B_type(fetched)
+        ist, srg1, srg2, val = Decoder.decode_S_type(fetched)
         super().__init__(self.instn, [ist, srg1, srg2, val])
 
     def valid(self):

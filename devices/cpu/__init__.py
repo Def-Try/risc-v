@@ -62,6 +62,10 @@ class CPU:
 
     def csr_read(self, address):
         regname = self.register_ids.get(address, "NONE")
+        ole = self.logger.enabled
+        self.logger.enabled = True
+        self.logger.log(3, "CPU", f"CSR read from: {address:03x} ({regname})")
+        self.logger.enabled = ole
         if regname == "NONE": return 0
         if self.hardwires.get(regname): return self.hardwires[regname]
         if regname == "mstatus":
@@ -77,6 +81,10 @@ class CPU:
 
     def csr_write(self, address, data):
         regname = self.register_ids.get(address, "NONE")
+        ole = self.logger.enabled
+        self.logger.enabled = True
+        self.logger.log(3, "CPU", f"CSR write to: {address:03x} ({regname}), data={data:08x}")
+        self.logger.enabled = ole
         if regname == "NONE": return
         if regname == "hvc0": print(chr(data), end='', flush=True)
         if self.hardwires.get(regname): return
@@ -101,7 +109,7 @@ class CPU:
     def get_instruction(self, instn):
         for instruction in self.__instructions:
             if instruction.instn != instn: continue
-            self.logger.log(5, "CPU", f"Instruction implemented: {instn:02x} / {instn:07b} / {instn} / {instruction.__name__}")
+            self.logger.log(8, "CPU", f"Instruction implemented: {instn:02x} / {instn:07b} / {instn} / {instruction.__name__}")
             return instruction
         raise NotImplementedError(f"Instruction not implemented: {instn:02x} / {instn:07b} / {instn}")
 
@@ -129,7 +137,7 @@ class CPU:
         else:                                  # 16 bit instruction
             pass
 
-        self.logger.log(5, "CPU", f"############## fetched: {fetched:08x} at PC {self.registers['pc']:08x}")
+        self.logger.log(8, "CPU", f"############## fetched: {fetched:08x} at PC {self.registers['pc']:08x}")
         if inst_size == 32:
             instruction = fetched & 0b01111111
         else:
@@ -147,9 +155,16 @@ class CPU:
         while True:
             instruction = self.fetch_instruction()
             if not instruction.valid(): break
-            instruction(self, self.memory, self.logger)
-            instruction_cb()
-            self.integer_registers[0] = 0
-            for i in range(len(self.integer_registers)): self.integer_registers[i] = self.integer_registers[i] & 0xFFFFFFFF
+            try:
+                instruction(self, self.memory, self.logger)
+                self.integer_registers[0] = 0
+                for i in range(len(self.integer_registers)):
+                    self.integer_registers[i] = self.integer_registers[i] & 0xFFFFFFFF
+                instruction_cb()
+            except:
+                self.integer_registers[0] = 0
+                for i in range(len(self.integer_registers)):
+                    self.integer_registers[i] = self.integer_registers[i] & 0xFFFFFFFF
+                raise
         if not graceful_exit:
             return -1
