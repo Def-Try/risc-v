@@ -1,10 +1,22 @@
 from utils.decoder import Decoder
 import utils.conversions as converter
 
+decoders = {
+    'J': Decoder.decode_J_type,
+    'I': Decoder.decode_I_type,
+    'R': Decoder.decode_R_type,
+    'Ra': Decoder.decode_R_type_atomic,
+    'U': Decoder.decode_U_type,
+    'B': Decoder.decode_B_type,
+    'S': Decoder.decode_S_type
+}
+
 class Instruction:
-    def __init__(self, instruct: int, args: list) -> None:
-        self.instruct = instruct
-        self.args = args
+    itype = ''
+    instn = 0b10000000
+    def __init__(self, fetched: bytes) -> None:
+        if self.itype == '': return
+        self.args = decoders[self.itype](fetched)
 
     def valid(self):
         return False
@@ -14,9 +26,7 @@ class Instruction:
 
 class JAL(Instruction):
     instn = 0b1101111
-    def __init__(self, fetched: bytes) -> None:
-        drg, val = Decoder.decode_J_type(fetched)
-        super().__init__(self.instn, [drg, val])
+    itype = 'J'
 
     def valid(self):
         return True
@@ -33,9 +43,7 @@ class JAL(Instruction):
 
 class JALR(Instruction):
     instn = 0b1100111
-    def __init__(self, fetched: bytes) -> None:
-        ist, drg, srg, val = Decoder.decode_I_type(fetched)
-        super().__init__(self.instn, [ist, drg, srg, val])
+    itype = 'I'
 
     def valid(self):
         return True
@@ -51,9 +59,7 @@ class JALR(Instruction):
 
 class EBREAK_ECALL_CSR(Instruction):
     instn = 0b1110011
-    def __init__(self, fetched: bytes) -> None:
-        ist, drg, srg, val = Decoder.decode_I_type(fetched)
-        super().__init__(self.instn, [ist, drg, srg, val])
+    itype = 'I'
 
     def valid(self):
         return True
@@ -113,8 +119,7 @@ class EBREAK_ECALL_CSR(Instruction):
 
 class FENCE(Instruction):
     instn = 0b0001111
-    def __init__(self, fetched: bytes) -> None:
-        pass
+    itype = ''
 
     def valid(self):
         return True
@@ -124,9 +129,7 @@ class FENCE(Instruction):
 
 class ANY_INTGR_I(Instruction):
     instn = 0b0010011
-    def __init__(self, fetched: bytes) -> None:
-        ist, drg, srg, val = Decoder.decode_I_type(fetched)
-        super().__init__(self.instn, [ist, drg, srg, val])
+    itype = 'I'
 
     def valid(self):
         return True
@@ -197,9 +200,7 @@ class ANY_INTGR_I(Instruction):
 
 class ANY_INTGR(Instruction):
     instn = 0b0110011
-    def __init__(self, fetched: bytes) -> None:
-        ist1, ist2, srg1, srg2, drg = Decoder.decode_R_type(fetched)
-        super().__init__(self.instn, [ist1, ist2, srg1, srg2, drg])
+    itype = 'R'
 
     def valid(self):
         return True
@@ -304,9 +305,7 @@ class ANY_INTGR(Instruction):
 
 class AUIPC(Instruction):
     instn = 0b0010111
-    def __init__(self, fetched: bytes) -> None:
-        drg, val = Decoder.decode_U_type(fetched)
-        super().__init__(self.instn, [drg, val])
+    itype = 'U'
 
     def valid(self):
         return True
@@ -319,9 +318,7 @@ class AUIPC(Instruction):
 
 class LUI(Instruction):
     instn = 0b0110111
-    def __init__(self, fetched: bytes) -> None:
-        drg, val = Decoder.decode_U_type(fetched)
-        super().__init__(self.instn, [drg, val])
+    itype = 'U'
 
     def valid(self):
         return True
@@ -333,9 +330,7 @@ class LUI(Instruction):
 
 class BRANCH(Instruction):
     instn = 0b1100011
-    def __init__(self, fetched: bytes) -> None:
-        ist, srg1, srg2, val = Decoder.decode_B_type(fetched)
-        super().__init__(self.instn, [ist, srg1, srg2, val])
+    itype = 'B'
 
     def valid(self):
         return True
@@ -399,9 +394,7 @@ class BRANCH(Instruction):
 
 class STORE(Instruction):
     instn = 0b0100011
-    def __init__(self, fetched: bytes) -> None:
-        ist, srg1, srg2, val = Decoder.decode_S_type(fetched)
-        super().__init__(self.instn, [ist, srg1, srg2, val])
+    itype = 'S'
 
     def valid(self):
         return True
@@ -423,9 +416,7 @@ class STORE(Instruction):
 
 class LOAD(Instruction):
     instn = 0b0000011
-    def __init__(self, fetched: bytes) -> None:
-        ist, drg, srg, val = Decoder.decode_I_type(fetched)
-        super().__init__(self.instn, [ist, drg, srg, val])
+    itype = 'I'
 
     def valid(self):
         return True
@@ -461,9 +452,7 @@ class LOAD(Instruction):
 
 class ANY_ATOMIC(Instruction):
     instn = 0b0101111
-    def __init__(self, fetched: bytes) -> None:
-        ist, ist2, srg1, srg2, drg = Decoder.decode_R_type_atomic(fetched)
-        super().__init__(self.instn, [ist, ist2, srg1, srg2, drg])
+    itype = 'Ra'
 
     def valid(self):
         return True

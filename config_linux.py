@@ -2,6 +2,7 @@ TRACEOUT_AT_INO = 99999999
 KILL_AT_INO = 99999999
 TRACEOUT_PRINT_REGISTERS = False
 DO_PRINT_CHANGED_SYMBOLS = False
+REPORT_STATUS_EACH_INO = 250000
 
 LOG_LEVEL = 7
 
@@ -69,11 +70,11 @@ def instruction_callback(logger, instruction_no):
                 logger.log(3, "MAIN", f"Executing at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}, {symbol}")
                 logger.enabled = False
                 _ps = symbol
-        if instruction_no % 25000 == 1:
+        if instruction_no % REPORT_STATUS_EACH_INO == 1:
             logger.enabled = False
         if instruction_no >= TRACEOUT_AT_INO:
             logger.enabled = True
-        if instruction_no % 25000 != 0 and not logger.enabled: return
+        if instruction_no % REPORT_STATUS_EACH_INO != 0 and not logger.enabled: return
     logger.enabled = True
     logger.log(3, "MAIN", f"Executing at {cpu.registers['pc']:08x}, Instruction no is {instruction_no}, {symbol}")
     if TRACEOUT_PRINT_REGISTERS:
