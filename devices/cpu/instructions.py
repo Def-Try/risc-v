@@ -310,8 +310,7 @@ class ANY_INTGR(Instruction):
             if ist1 == 0:
                 logger.log(6, "CPU", f"SUB -> x{drg} = x{srg1} - x{srg2}")
                 cpu.int_write(drg,
-                    converter.interpret_as_32_bit_signed_value(cpu.int_read(srg1)) \
-                        - converter.interpret_as_32_bit_signed_value(cpu.int_read(srg2)))
+                    cpu.int_read(srg1) - cpu.int_read(srg2))
                 return
             if ist1 == 5:
                 logger.log(6, "CPU", f"SRA -> x{drg} = x{srg1} >> x{srg2}")
