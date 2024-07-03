@@ -36,8 +36,8 @@ else:
     exit(1)
 uart = UART(logger)
 bus = AddressBus([
-    [config.RAM_RANGE[0], config.RAM_RANGE[1], ram],
-    [config.UART_RANGE[0], config.UART_RANGE[1], uart]
+    [config.UART_RANGE[0], config.UART_RANGE[1], uart],
+    [config.RAM_RANGE[0], config.RAM_RANGE[1], ram]
 ])
 cpu = CPU(bus, logger)
 

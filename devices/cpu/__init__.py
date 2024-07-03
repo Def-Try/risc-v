@@ -12,8 +12,6 @@ mask_mstatus_MPIE = 0x0080
 mask_mstatus_MPP  = 0x1800
 
 class CPU:
-    __instructions = INSTRUCTIONS
-
     def __init__(self, memory: AddressBus, logger: Logger):
         self.logger = logger
         self.registers = {
@@ -114,7 +112,7 @@ class CPU:
         self.integer_registers[n] = v & 0xFFFFFFFF
 
     def get_instruction(self, instn):
-        for instruction in self.__instructions:
+        for instruction in INSTRUCTIONS:
             if instruction.instn != instn: continue
             self.logger.log(8, "CPU", f"Instruction implemented: {instn:02x} / {instn:07b} / {instn} / {instruction.__name__}")
             return instruction
