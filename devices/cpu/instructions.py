@@ -474,7 +474,7 @@ class ANY_ATOMIC(Instruction):
         if ist2 == 0x00:
             logger.log(6, "CPU", f"amoadd.w x{srg1} x{srg2} x{drg}")
             cur_val = int.from_bytes(memory.read(cpu.int_read(srg1), 4), 'little')
-            new_val = cur_val + cpu.int_read(srg2)
+            new_val = (cur_val + cpu.int_read(srg2)) & 0xFFFFFFFF
             cpu.int_write(drg, cur_val)
             memory.write(cpu.int_read(srg1), new_val.to_bytes(4, 'little'))
             return
@@ -504,21 +504,21 @@ class ANY_ATOMIC(Instruction):
         if ist2 == 0x04:
             logger.log(6, "CPU", f"amoxor.w x{srg1} x{srg2} x{drg}")
             cur_val = int.from_bytes(memory.read(cpu.int_read(srg1), 4), 'little')
-            new_val = cur_val ^ cpu.int_read(srg2)
+            new_val = (cur_val ^ cpu.int_read(srg2)) & 0xFFFFFFFF
             cpu.int_write(drg, cur_val)
             memory.write(cpu.int_read(srg1), new_val.to_bytes(4, 'little'))
             return
         if ist2 == 0x08:
             logger.log(6, "CPU", f"amoor.w x{srg1} x{srg2} x{drg}")
             cur_val = int.from_bytes(memory.read(cpu.int_read(srg1), 4), 'little')
-            new_val = cur_val | cpu.int_read(srg2)
+            new_val = (cur_val | cpu.int_read(srg2)) & 0xFFFFFFFF
             cpu.int_write(drg, cur_val)
             memory.write(cpu.int_read(srg1), new_val.to_bytes(4, 'little'))
             return
         if ist2 == 0x0C:
             logger.log(6, "CPU", f"amoxor.w x{srg1} x{srg2} x{drg}")
             cur_val = int.from_bytes(memory.read(cpu.int_read(srg1), 4), 'little')
-            new_val = cur_val & cpu.int_read(srg2)
+            new_val = (cur_val & cpu.int_read(srg2)) & 0xFFFFFFFF
             cpu.int_write(drg, cur_val)
             memory.write(cpu.int_read(srg1), new_val.to_bytes(4, 'little'))
             return
