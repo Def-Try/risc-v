@@ -3,7 +3,8 @@ import os
 import zipfile
 from math import ceil
 from devices.cpu import CPU
-from devices.memory import RAM, AddressBus
+from devices.memory import RAM_BYTEARRAY, RAM_DICT, AddressBus
+from devices.uart import UART
 
 from utils import logger as logr
 
@@ -25,11 +26,22 @@ def format_exception(e):
     formatted = f"{traceback}\n{klass.__name__}: {objekt}"
     return formatted
 
-ram = RAM(logger)
-bus = AddressBus([[config.RAM_RANGE[0], config.RAM_RANGE[1], ram]])
+ram = None
+if config.RAM_TYPE == "BYTEARRAY":
+    ram = RAM_BYTEARRAY(logger, config.RAM_RANGE[1] - config.RAM_RANGE[0])
+elif config.RAM_TYPE == "DICT":
+    ram = RAM_DICT(logger)
+else:
+    print(f"Unsupported ram type: {config.RAM_TYPE}. Should be one of ['DICT', 'BYTEARRAY']")
+    exit(1)
+uart = UART(logger)
+bus = AddressBus([
+    [config.RAM_RANGE[0], config.RAM_RANGE[1], ram],
+    [config.UART_RANGE[0], config.UART_RANGE[1], uart]
+])
 cpu = CPU(bus, logger)
 
-config.loader(cpu, bus)
+config.loader(logger, cpu, bus, uart)
 instruction_no = 0
 try:
     config.pre_cpu_start(logger)
@@ -77,21 +89,30 @@ except BaseException as e:
         return sequences
 
     with zipfile.ZipFile(f'{saveto}crashdump.zip', 'w') as dumpzip:
-        for region in find_continuous_sequences(sorted(list(ram.memory.keys()))):
-            start = min(region)
-            size = max(region) - start + 1
-            filename = f"{saveto}memory{start:08x}-{start+size:08x}.dmp"
-            logger.log(1, "CRASH_HANDLER", f"  Writing memory dump: start={start:08x}, size={size:08x}, file={filename}")
+        if config.RAM_TYPE == "DICT":
+            for region in find_continuous_sequences(sorted(list(ram.memory.keys()))):
+                start = min(region)
+                size = max(region) - start + 1
+                filename = f"{saveto}memory{start:08x}-{start+size:08x}.dmp"
+                logger.log(1, "CRASH_HANDLER", f"  Writing memory dump: start={start:08x}, size={size:08x}, file={filename}")
+                with open(filename, 'wb') as memdump:
+                    with dumpzip.open(filename, 'w') as memdumpzip:
+                        left = size
+                        got = 0
+                        while left > 0:
+                            logger.log(1, "CRASH_HANDLER", f"  Left to write: {left}...")
+                            memdump.write(bus.read(config.RAM_RANGE[0]+start+got, min(left, 1024*1024)))
+                            memdumpzip.write(bus.read(config.RAM_RANGE[0]+start+got, min(left, 1024*1024)))
+                            left -= 1024*1024
+                            got += 1024*1024
+        elif config.RAM_TYPE == "BYTEARRAY":
+            filename = f"{saveto}memory.dmp"
+            logger.log(1, "CRASH_HANDLER", f"  Writing memory dump: file={filename}")
             with open(filename, 'wb') as memdump:
                 with dumpzip.open(filename, 'w') as memdumpzip:
-                    left = size
-                    got = 0
-                    while left > 0:
-                        logger.log(1, "CRASH_HANDLER", f"  Left to write: {left}...")
-                        memdump.write(bus.read(start+got, min(left, 1024*1024)))
-                        memdumpzip.write(bus.read(start+got, min(left, 1024*1024)))
-                        left -= 1024*1024
-                        got += 1024*1024
+                    memdump.write(bus.read(config.RAM_RANGE[0], config.RAM_RANGE[1] - config.RAM_RANGE[0]))
+                    memdumpzip.write(bus.read(config.RAM_RANGE[0], config.RAM_RANGE[1] - config.RAM_RANGE[0]))
+                        
         logger.log(1, "CRASH_HANDLER", "  All written!")
         filename = f"{saveto}log.txt"
         logger.log(1, "CRASH_HANDLER", f"Writing logged data to {filename}")

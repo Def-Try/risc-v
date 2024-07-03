@@ -111,7 +111,7 @@ class CPU:
 #            o = self.logger.enabled; self.logger.enabled = True
 #            self.logger.log(4, "CPU", f"Register write: x{n}: {self.int_read(n):08x} -> {v:08x}")
 #            self.logger.enabled = o
-        self.integer_registers[n] = v % 0xFFFFFFFF
+        self.integer_registers[n] = v & 0xFFFFFFFF
 
     def get_instruction(self, instn):
         for instruction in self.__instructions:

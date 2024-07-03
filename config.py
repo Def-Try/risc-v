@@ -3,10 +3,11 @@ TRACEOUT_AT_INO = 748620
 
 LOG_LEVEL = 6
 
-RAM_RANGE = (0x00000000, 0xFFFFFFFF)
+RAM_RANGE  = (0x80000000, 0xFFFFFFFF)
+UART_RANGE = (0x10000000, 0x10000008)
 
 cpu, bus = None, None
-def loader(cpu_, bus_):
+def loader(logger, cpu_, bus_, uart_):
     global cpu, bus
     cpu, bus = cpu_, bus_
     with open("program/code.img", 'rb') as file:

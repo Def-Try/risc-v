@@ -269,40 +269,22 @@ class ANY_INTGR(Instruction):
                 return
             if ist1 == 4:
                 logger.log(6, "CPU", f"DIV -> x{drg} = x{srg1} / x{srg2}")
-                #if converter.interpret_as_32_bit_signed_value(cpu.int_read(srg2)) == 0:
-                #    cpu.int_write(drg, 0xFFFFFFFF
-                #    return
-                if converter.interpret_as_32_bit_signed_value(cpu.int_read(srg2)) == -1:
-                    cpu.int_write(drg, 0)
-                    return
                 cpu.int_write(drg, converter.convert_to_32_bit_unsigned_value(
                     converter.interpret_as_32_bit_signed_value(cpu.int_read(srg1)) \
                         // converter.interpret_as_32_bit_signed_value(cpu.int_read(srg2))))
                 return
             if ist1 == 5:
                 logger.log(6, "CPU", f"DIVU -> x{drg} = x{srg1} / x{srg2}")
-                if cpu.int_read(srg2) == 0:
-                    cpu.int_write(drg, 0xFFFFFFFF)
-                    return
                 cpu.int_write(drg, cpu.int_read(srg1) // cpu.int_read(srg2))
                 return
             if ist1 == 6:
-                logger.log(6, "CPU", f"REM -> x{drg} = x{srg1} / x{srg2}")
-                if converter.interpret_as_32_bit_signed_value(cpu.int_read(srg2)) == 0:
-                    cpu.int_write(drg, 0xFFFFFFFF)
-                    return
-                if converter.interpret_as_32_bit_signed_value(cpu.int_read(srg2)) == -1:
-                    cpu.int_write(drg, -1)
-                    return
+                logger.log(6, "CPU", f"REM -> x{drg} = x{srg1} % x{srg2}")
                 cpu.int_write(drg, converter.convert_to_32_bit_unsigned_value(
                     converter.interpret_as_32_bit_signed_value(cpu.int_read(srg1)) \
                         % converter.interpret_as_32_bit_signed_value(cpu.int_read(srg2))))
                 return
             if ist1 == 7:
-                logger.log(6, "CPU", f"REMU -> x{drg} = x{srg1} / x{srg2}")
-                if cpu.int_read(srg2) == 0:
-                    cpu.int_write(drg, 0xFFFFFFFF)
-                    return
+                logger.log(6, "CPU", f"REMU -> x{drg} = x{srg1} % x{srg2}")
                 cpu.int_write(drg, cpu.int_read(srg1) % cpu.int_read(srg2))
                 return
             raise NotImplementedError(f"SUBSUBInstruction of {ist2:02x} not implemented: {ist1:02x} / {ist1:07b} / {ist1}")
@@ -455,7 +437,7 @@ class LOAD(Instruction):
         if ist == 0: # lb
             logger.log(6, "CPU", f"LB x{drg} = x{srg} + {val}")
             value = int.from_bytes(memory.read(addr, 1), 'little')
-            if value & 0b10000000 != 0:
+            if value & 0x80 != 0:
                 value = value | 0xFFFFFF00
             cpu.int_write(drg, value)
         if ist == 1: # lh
