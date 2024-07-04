@@ -1,7 +1,11 @@
+import time
+
 from .instructions import INSTRUCTIONS
 from devices.memory import AddressBus
 
 from utils.logger import Logger
+
+PROFILING_MODE = True
 
 MACHINE_MODE    = 0b11
 SUPERVISOR_MODE = 0b01
@@ -58,6 +62,9 @@ class CPU:
         self.previous_interrupts_enable = False
         self.interrupts_enable = False
 
+        if PROFILING_MODE:
+            self.profiling_data = {}
+
     def get_registers_formatted(self):
         regs = [f"#{i:02d}: {reg:08x}, " for i,reg in enumerate(self.integer_registers)] + [f"{n:8}: {reg:08x}, " for n,reg in self.registers.items() if n != "pc"] + [f"mstatus : {self.csr_read(0x300):08x}"]
         regs = regs + [" "] * 4
@@ -105,15 +112,11 @@ class CPU:
         return self.integer_registers[n]
 
     def int_write(self, n, v):
-#        if n in [10, 12]:
-#            o = self.logger.enabled; self.logger.enabled = True
-#            self.logger.log(4, "CPU", f"Register write: x{n}: {self.int_read(n):08x} -> {v:08x}")
-#            self.logger.enabled = o
         self.integer_registers[n] = v & 0xFFFFFFFF
 
     def get_instruction(self, instn):
-        for instruction in INSTRUCTIONS:
-            if instruction.instn != instn: continue
+        if INSTRUCTIONS.get(instn):
+            instruction = INSTRUCTIONS[instn]
             self.logger.log(8, "CPU", f"Instruction implemented: {instn:02x} / {instn:07b} / {instn} / {instruction.__name__}")
             return instruction
         raise NotImplementedError(f"Instruction not implemented: {instn:02x} / {instn:07b} / {instn}")
@@ -147,23 +150,27 @@ class CPU:
         else:
             raise NotImplementedError(f"Instruction format not implemented: {fetched:016x} / inst_s {inst_size}")
 
-        inst = self.get_instruction(instruction)(fetched)
+        inst = self.get_instruction(instruction)
         inst.inst_size = inst_size
-        return inst
+        return inst, fetched
 
     def run(self, instruction_cb):
         graceful_exit = False
         while True:
-            instruction = self.fetch_instruction()
-            if not instruction.valid(): break
+            instruction, fetched = self.fetch_instruction()
+            if not instruction: break
             try:
                 instruction_cb()
-                jumped_pc = instruction(self, self.memory, self.logger)
+                start_time = time.perf_counter()
+                jumped_pc = instruction(fetched, self, self.memory, self.logger)
+                took = time.perf_counter() - start_time
                 self.integer_registers[0] = 0
                 for i in range(len(self.integer_registers)):
                     self.integer_registers[i] = self.integer_registers[i] & 0xFFFFFFFF
                 if not jumped_pc:
                     self.registers["pc"] += instruction.inst_size // 8
+                self.profiling_data[instruction.serialized] = self.profiling_data.get(instruction.serialized, [])
+                self.profiling_data[instruction.serialized].append(took)
             except:
                 self.integer_registers[0] = 0
                 for i in range(len(self.integer_registers)):

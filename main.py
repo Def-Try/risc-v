@@ -60,6 +60,11 @@ except BaseException as e:
     logger.log(1, "CRASH_HANDLER", f"PC: {cpu.registers['pc']:08x}")
     logger.log(1, "CRASH_HANDLER", f"I-No: {instruction_no}")
     logger.log(1, "CRASH_HANDLER", "")
+    if hasattr(cpu, "profiling_data"):
+        for inst,data in cpu.profiling_data.items():
+            logger.log(1, "CRASH_HANDLER", f"PROFILING: {inst}: avg {sum(data) / len(data) * 1000:.4f}, min {min(data) * 1000:.4f}ms, max {max(data) * 1000:.4f}ms, ncalls {len(data)}")
+
+    logger.log(1, "CRASH_HANDLER", f"I-No: {instruction_no}")
     exc = sys.exc_info()
     tr = format_exception([exc[0], exc[1], exc[2]])
     for _ in tr.split("\n"):
@@ -112,7 +117,6 @@ except BaseException as e:
                 with dumpzip.open(filename, 'w') as memdumpzip:
                     memdump.write(bus.read(config.RAM_RANGE[0], config.RAM_RANGE[1] - config.RAM_RANGE[0]))
                     memdumpzip.write(bus.read(config.RAM_RANGE[0], config.RAM_RANGE[1] - config.RAM_RANGE[0]))
-                        
         logger.log(1, "CRASH_HANDLER", "  All written!")
         filename = f"{saveto}log.txt"
         logger.log(1, "CRASH_HANDLER", f"Writing logged data to {filename}")
