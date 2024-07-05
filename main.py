@@ -28,9 +28,9 @@ def format_exception(e):
 
 ram = None
 if config.RAM_TYPE == "BYTEARRAY":
-    ram = RAM_BYTEARRAY(logger, config.RAM_RANGE[1] - config.RAM_RANGE[0])
+    ram = RAM_BYTEARRAY(config.RAM_RANGE[1] - config.RAM_RANGE[0])
 elif config.RAM_TYPE == "DICT":
-    ram = RAM_DICT(logger)
+    ram = RAM_DICT()
 else:
     print(f"Unsupported ram type: {config.RAM_TYPE}. Should be one of ['DICT', 'BYTEARRAY']")
     exit(1)

@@ -4,8 +4,8 @@ class UART:
 
     def read(self, from_addr: int, amount: int) -> int:
         if from_addr == 5:
-            return 0b01100000
-        return 0
+            return bytearray([0b01100000])
+        return bytearray([0])
 
     def write(self, to_addr: int, data: bytes):
         if to_addr != 0:

@@ -5,12 +5,12 @@ class AddressBus:
     def read_single(self, address: int) -> int:
         for start, end, device in self.devices:
             if address < start or address > end: continue
-            return device.read(address - start, 1) & 0xFF
+            return device.read(address - start, 1)[0] & 0xFF
         raise ValueError(f"Address {address:08x} out of bounds")
     def write_single(self, address: int, data: int) -> None:
         for start, end, device in self.devices:
             if address < start or address > end: continue
-            return device.write(address - start, bytes([data & 0xFF]))
+            return device.write(address - start, bytearray([data & 0xFF]))
         raise ValueError(f"Address {address:08x} out of bounds")
 
     def read(self, address: int, amount: int) -> bytes:
