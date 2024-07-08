@@ -26,10 +26,10 @@ end
 function addressbus:read_single(address)
     for _, device in ipairs(self.devices) do
         local start, end_, read = device:bounds()
-        if address < start or address > end_ then goto continue end
-        read = device:read(address - start, 1)
-        return bit.band(read, 0xFF)
-        ::continue::
+        if not (address < start or address > end_) then
+            read = device:read(address - start, 1)
+            return bit.band(read, 0xFF)
+        end
     end
     error("ValueError: Address " .. string.format("%08x", address) .. " out of bounds")
 end
@@ -37,10 +37,10 @@ end
 function addressbus:write_single(address, data)
     for _, device in ipairs(self.devices) do
         local start, end_, write = device:bounds()
-        if address < start or address > end_ then goto continue end
-        write = device:write(address - start, string.pack("B", bit.band(data, 0xFF)))
-        return
-        ::continue::
+        if not (address < start or address > end_) then
+            write = device:write(address - start, string.pack("B", bit.band(data, 0xFF)))
+            return
+        end
     end
     error("ValueError: Address " .. string.format("%08x", address) .. " out of bounds")
 end
@@ -56,8 +56,9 @@ function addressbus:read(address, amount)
 
     for _, device in ipairs(self.devices) do
         local start, end_, read = device:bounds()
-        if address < start or address > end_ then goto continue end
-        return read(address - start, amount)
+        if not (address < start or address > end_) then 
+            return read(address - start, amount)
+        end
     end
 
     error("ValueError: Address " .. string.format("%08x", address) .. " out of bounds")
@@ -73,9 +74,10 @@ function addressbus:write(address, data)
 
     for _, device in ipairs(self.devices) do
         local start, end_, write = device:bounds()
-        if address < start or address > end_ then goto continue end
-        write(address - start, data)
-        return
+        if not (address < start or address > end_) then 
+            write(address - start, data)
+            return
+        end
     end
 
     error("ValueError: Address " .. string.format("%08x", address) .. " out of bounds")
