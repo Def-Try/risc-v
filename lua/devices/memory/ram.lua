@@ -27,7 +27,7 @@ end
 
 function RAM_BYTEARRAY:write(to_addr, data)
     if to_addr + #data > self.size then
-        error("MemoryError: Invalid memory address or size")
+        error(string.format("MemoryError: Invalid memory address or size (addr %08x + datasize %08x (%08x) > size %08x)", to_addr, #data, to_addr + #data, self.size))
     end
     for i=1,#data do
         self.memory[to_addr+i-1] = data:byte(i)

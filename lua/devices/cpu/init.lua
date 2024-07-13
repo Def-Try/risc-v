@@ -1,5 +1,7 @@
 local bit32 = require("bit")
 
+local INSTRUCTIONS = require("devices/cpu/instructions")
+
 local PROFILING_MODE = false
 
 local cpu = {
@@ -53,11 +55,10 @@ end
 function cpu:get_instruction(instn)
     local instruction = INSTRUCTIONS[instn]
     if instruction then
-        self.logger.log(8, "CPU", string.format("Instruction implemented: %#02x / %#07b / %#x / %s\n", instn, instn, instn, instruction.__name or ''))
-        if self.level >= 8 then print(string.format("[L8 / CPU] Instruction implemented: %#02x / %#07b / %#x / %s", instn, instn, instn, instruction.__name or '')) end
+        self.logger:log(8, "CPU", string.format("Instruction implemented: %02x / %x / %s", instn, instn, instruction.__name or ''))
         return instruction
     end
-    error(string.format("Instruction not implemented: %#02x / %#07b / %#x", instn, instn, instn))
+    error(string.format("Instruction not implemented: %02x / %d", instn, instn))
 end
 
 local function bytes_to_int_little(str)
@@ -110,32 +111,25 @@ function cpu:run(instruction_cb)
         local instruction, fetched = self:fetch_instruction()
         if not instruction then break end
 
-        xpcall(function()
-            instruction_cb()
-            local start_time = os.clock()
-            local jumped_pc = instruction:execute(fetched, self, self.memory, self.logger)
-            local took = os.clock() - start_time
+        instruction_cb()
+        local start_time = os.clock()
+        local jumped_pc = instruction(fetched, self, self.bus, self.logger)
+        local took = os.clock() - start_time
 
-            self.integer_registers[0] = 0
-            for i = 1, #self.integer_registers do
-                self.integer_registers[i] = bit32.band(self.integer_registers[i], 0xFFFFFFFF)
-            end
+        self.integer_registers[0] = 0
+        for i = 1, #self.integer_registers do
+            self.integer_registers[i] = bit32.band(self.integer_registers[i], 0xFFFFFFFF)
+        end
 
-            if not jumped_pc then
-                self.registers["pc"] = self.registers["pc"] + math.floor(instruction.inst_size / 8)
-            end
-
+        if not jumped_pc then
+            self.registers["pc"] = self.registers["pc"] + math.floor(instruction.inst_size / 8)
+        end
+        if self.profiling_data then
             if not self.profiling_data[instruction.serialized] then
                 self.profiling_data[instruction.serialized] = {}
             end
             table.insert(self.profiling_data[instruction.serialized], took)
-        end, function(err)
-            self.integer_registers[0] = 0
-            for i = 1, #self.integer_registers do
-                self.integer_registers[i] = bit32.band(self.integer_registers[i], 0xFFFFFFFF)
-            end
-            error(err)
-        end)
+        end
     end
 
     if not graceful_exit then

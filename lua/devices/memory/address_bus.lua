@@ -25,9 +25,9 @@ end
 
 function addressbus:read_single(address)
     for _, device in ipairs(self.devices) do
-        local start, end_, read = device:bounds()
+        local start, end_, dev = device[1], device[2], device[3]
         if not (address < start or address > end_) then
-            read = device:read(address - start, 1)
+            read = string.byte(dev:read(address - start, 1))
             return bit.band(read, 0xFF)
         end
     end
@@ -36,9 +36,9 @@ end
 
 function addressbus:write_single(address, data)
     for _, device in ipairs(self.devices) do
-        local start, end_, write = device:bounds()
+        local start, end_, dev = device[1], device[2], device[3]
         if not (address < start or address > end_) then
-            write = device:write(address - start, string.pack("B", bit.band(data, 0xFF)))
+            write = dev:write(address - start, string.char(bit.band(data, 0xFF)))
             return
         end
     end
@@ -49,15 +49,15 @@ function addressbus:read(address, amount)
     if amount < 512 then
         local data = {}
         for i=0,amount-1 do
-            data[i+1] = self:read_single(address + i)
+            data[i+1] = string.char(self:read_single(address + i))
         end
         return table.concat(data)
     end
 
     for _, device in ipairs(self.devices) do
-        local start, end_, read = device:bounds()
-        if not (address < start or address > end_) then 
-            return read(address - start, amount)
+        local start, end_, dev = device[1], device[2], device[3]
+        if not (address < start or address > end_) then
+            return dev:read(address - start, 1)
         end
     end
 
@@ -73,9 +73,9 @@ function addressbus:write(address, data)
     end
 
     for _, device in ipairs(self.devices) do
-        local start, end_, write = device:bounds()
-        if not (address < start or address > end_) then 
-            write(address - start, data)
+        local start, end_, dev = device[1], device[2], device[3]
+        if not (address < start or address > end_) then
+            dev:write(address - start, data)
             return
         end
     end
