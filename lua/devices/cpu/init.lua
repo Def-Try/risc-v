@@ -55,7 +55,7 @@ end
 function cpu:get_instruction(instn)
     local instruction = INSTRUCTIONS[instn]
     if instruction then
-        self.logger:log(8, "CPU", string.format("Instruction implemented: %02x / %x / %s", instn, instn, instruction.__name or ''))
+        self.logger:log(8, "CPU", string.format("Instruction implemented: %02x / %d / %s", instn, instn, instruction.__name or ''))
         return instruction
     end
     error(string.format("Instruction not implemented: %02x / %d", instn, instn))
