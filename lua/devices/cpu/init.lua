@@ -14,19 +14,19 @@ local cpu = {
 	}
 }
 
-local function deepcopy(o, seen)
-  seen = seen or {}
-  if o == nil then return nil end
-  if seen[o] then return seen[o] end
-  local no = {}
-  seen[o] = no
-  setmetatable(no, deepcopy(getmetatable(o), seen))
-  for k, v in next, o, nil do
-    k = (type(k) == 'table') and deepcopy(k, seen) or k
-    v = (type(v) == 'table') and deepcopy(v, seen) or v
-    no[k] = v
-  end
-  return no
+local function deepcopy(obj, seen)
+    seen = seen or {}
+    if obj == nil then return nil end
+    if seen[obj] then return seen[obj] end
+    local new_obj = {}
+    seen[obj] = new_obj
+    setmetatable(new_obj, deepcopy(getmetatable(obj), seen))
+    for key, value in next, obj, nil do
+        key = (type(key) == 'table') and deepcopy(key, seen) or key
+        value = (type(value) == 'table') and deepcopy(value, seen) or value
+        new_obj[key] = value
+    end
+    return new_obj
 end
 
 
