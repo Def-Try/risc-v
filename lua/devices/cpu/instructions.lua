@@ -13,6 +13,27 @@ local decoders = {
     S=decoder.decode_S_type
 }
 
+local function immediate_functions()
+    local _ = {}
+    _.mt = {}
+    _.mt.__call = function(z_, data, CPU, BUS, LOGGER)
+		local sub, drg, srg, imm = decoders['J'](data)
+        imm = converter.interpret_as_12_bit_signed_value(val)
+        if sub == 0x0 then -- addi
+            CPU.int_write(drg, CPU.int_read(srg) + imm)
+        elseif sub == 0x4 then -- xori
+            CPU.int_write(drg, bit.bxor(CPU.int_read(srg), imm))
+        elseif sub == 0x6 then -- ori
+            CPU.int_write(drg, bit.bor(CPU.int_read(srg), imm))
+        elseif sub == 0x7 then -- andi
+            CPU.int_write(drg, bit.band(CPU.int_read(srg), imm))
+        end
+    end
+    _.__name = "IMM"
+    setmetatable(_, _.mt)
+    return _
+end
+
 local function jal()
 	local _ = {}
 	_.mt = {}
@@ -36,5 +57,6 @@ local function jal()
 end
 
 return {
-	[0x6f] = jal()
+    [0x13] = immediate_functions(),
+	[0x6f] = jal(),
 }
