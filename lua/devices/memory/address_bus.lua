@@ -46,7 +46,7 @@ function addressbus:write_single(address, data)
 end
 
 function addressbus:read(address, amount)
-    if amount < 512 then
+    if amount < 512 or true then
         local data = {}
         for i=0,amount-1 do
             data[i+1] = string.char(self:read_single(address + i))
@@ -65,7 +65,7 @@ function addressbus:read(address, amount)
 end
 
 function addressbus:write(address, data)
-    if #data < 512 then
+    if #data < 512 or true then
         for i=0,#data-1 do
             self:write_single(address + i, data:byte(i+1))
         end

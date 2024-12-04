@@ -7,11 +7,40 @@ local PROFILING_MODE = false
 local cpu = {
 	registers = {pc=0},
 	integer_registers = {
-		-1, 0, 0, 0, 0, 0, 0, 0,
+	-1, 0, 0, 0, 0, 0, 0, 0,
          0, 0, 0, 0, 0, 0, 0, 0,
          0, 0, 0, 0, 0, 0, 0, 0,
          0, 0, 0, 0, 0, 0, 0, 0,
-	}
+	},
+        csr_idtoreg = { -- CSR-to-regname dict
+            [0x139]="hvc0", -- Xen hypervisor console out
+            [0x140]="sscratch", -- Scratch register for supervisor trap handlers
+            [0x300]="mstatus", -- Machine Status register
+            [0x304]="mie", -- Machine Interrupt Enable
+            [0x305]="mtvec", -- Machine trap-handler base address
+	    [0x340]="mscratch", -- Scratch register
+            [0x341]="mepc", -- Machine exception PC / Instruction pointer
+            [0x342]="mcause", -- Machine trap cause
+            [0x343]="mtval", -- Machine bad address or instruction
+            [0x344]="mip", -- Machine Interrupt Pending
+            [0x3a0]="pmpcfg0", -- Physical memory protection configuration
+            [0x3b0]="pmpaddr0", -- Physical memory protection address register
+            [0xf11]="mvendorid", -- Machine Vendor ID
+            [0xf12]="marchid", -- Machine Architecture ID
+            [0xf13]="mimpid", -- Machine Implementation ID
+            [0xf14]="mhartid" -- Hardware thread ID
+        },
+        csr_hardwires = { -- CSR register hardwires
+            ["sscratch"]=0xffffffff,
+            ["mvendorid"]=0xff0ff0ff,
+            ["mhartid"]=0,
+            ["pmpcfg0"]=0,
+            ["pmpaddr0"]=0,
+            ["mvendorid"]=0,
+            ["marchid"]=0,
+            ["mimpid"]=0,
+            ["hvc0"]=0
+        }
 }
 
 local function deepcopy(o, seen)
@@ -49,6 +78,18 @@ end
 function cpu:int_write(reg, val)
 	if reg == 0 then return end -- x0 is hardwired
 	self.integer_registers[reg] = val
+end
+
+function cpu:csr_read(reg)
+    regname = self.csr_idtoreg[reg]
+    if not regname then return 0 end
+    return self.csr_hardwires[regname] or self.registers[regname]
+end
+function cpu:csr_write(reg, val)
+    regname = self.csr_idtoreg[reg]
+    if not regname then return end
+    if self.csr_hardwires[regname] then return end
+    self.registers[reg] = val
 end
 
 
