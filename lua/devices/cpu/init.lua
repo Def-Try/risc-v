@@ -83,7 +83,7 @@ end
 function cpu:csr_read(reg)
     regname = self.csr_idtoreg[reg]
     if not regname then return 0 end
-    return self.csr_hardwires[regname] or self.registers[regname]
+    return self.csr_hardwires[regname] or self.registers[regname] or 0
 end
 function cpu:csr_write(reg, val)
     regname = self.csr_idtoreg[reg]
@@ -111,10 +111,11 @@ local function bytes_to_int_little(str)
 end
 
 function cpu:fetch_instruction()
-    local fetched = bit32.band(bytes_to_int_little(self.bus:read(self.registers["pc"], 2)), 0xffff)
+    local fetched = -- bit32.band(
+        bytes_to_int_little(self.bus:read(self.registers["pc"], 2)) --, 0xffff)
     local inst_size = 16
 
-    if bit32.band(fetched, 0x7F) == 0xF then        -- (80+16nnn)-bit instruction
+    if bit32.band(fetched, 0x7F) == 0x7F then        -- (80+16nnn)-bit instruction
         local n = bit32.band(bit32.rshift(fetched, 12), 0x7)
         if n == 0x7 then                            -- >= 192 bit instruction
             error("Instruction size not implemented: " .. string.format("%04x", fetched) .. " / " .. string.format("%016b", fetched))
@@ -148,7 +149,10 @@ end
 
 function cpu:run(instruction_cb)
     local graceful_exit = false
+    local instn = 0
     while true do
+        instn = instn + 1
+        self.logger:log(8, "CPU", "############## instruction: "..instn)
         local instruction, fetched = self:fetch_instruction()
         if not instruction then break end
 

@@ -13,12 +13,11 @@ local CPU = cpu.init(LOGGER, BUS)
 LOGGER:log(1, "MAIN", "Running self-tests...")
 BUS:write(RAM_RANGE[1], "a")
 LOGGER:log(1, "MAIN", " BUS: RAM single write: OK")
-BUS:write(RAM_RANGE[1], string.rep("a", 512))
+BUS:write(RAM_RANGE[1], string.rep("a", 1024))
 LOGGER:log(1, "MAIN", " BUS: RAM bulk write: OK")
 assert(BUS:read(RAM_RANGE[1], 1) == "a")
 LOGGER:log(1, "MAIN", " BUS: RAM single read: OK")
-print(BUS:read(RAM_RANGE[1], 512))
-assert(BUS:read(RAM_RANGE[1], 512) == string.rep("a", 512))
+assert(BUS:read(RAM_RANGE[1], 1024) == string.rep("a",1024))
 LOGGER:log(1, "MAIN", " BUS: RAM bulk read: OK")
 LOGGER:log(1, "MAIN", "Self-tests done.")
 
@@ -67,4 +66,8 @@ function PrintTable( t, indent, done )
 
 end
 
-CPU:run(function() end)
+local inum = 0
+CPU:run(function()
+    inum = inum + 1
+    print(inum)
+end)
