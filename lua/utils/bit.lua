@@ -5,6 +5,13 @@ function bit.rshift(num, n) return math.max(0, math.floor(num / 2^n)) end
 function bit.lshift(num, n) return num * 2^n end
 function bit.pick(num, n) return bit.rshift(num, n) % 2 end
 
+function bit.min_bits(num) return
+    for i = bit.bitcount-1, 0 do
+        if bit.pick(num, i) == 1 then return i+1 end
+    end
+    return 1
+end
+
 function bit.bor(n1, n2)
     local final = 0
     for i=bit.bitcount-1,0,-1 do

@@ -50,7 +50,7 @@ local converter = {
     end,
 
     -- convert value to 32-bit unsigned value
-    -- todo: why??
+    -- TODO: why??
     convert_to_32_bit_unsigned_value = function(value)
         return value
     end,
