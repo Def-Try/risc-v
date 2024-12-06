@@ -1,14 +1,12 @@
 bit = require("utils.bit")
 
-function mkbitrepr(i,bc)
-  bc=bc or 32
-  local bitrepr = ""
-  for x=0,bc-1 do
-    bitrepr = bit.pick(i, x)..bitrepr
-  end
-  return bitrepr
-end
-
-i=bit.bnot(0b00001111)
-print(i..": "..mkbitrepr(i))
-
+print(0, bit.min_bits(0))
+print(1, bit.min_bits(1))
+print(2, bit.min_bits(2))
+print(3, bit.min_bits(3))
+print(4, bit.min_bits(4))
+print(5, bit.min_bits(5))
+print(6, bit.min_bits(6))
+print(7, bit.min_bits(7))
+print(8, bit.min_bits(8))
+print(9, bit.min_bits(9))
