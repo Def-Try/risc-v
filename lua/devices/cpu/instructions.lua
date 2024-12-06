@@ -1,4 +1,4 @@
-local bit = require("bit")
+local bit = require("utils/bit")
 
 local decoder = require("utils/decoder")
 local converter = require("utils/converter")

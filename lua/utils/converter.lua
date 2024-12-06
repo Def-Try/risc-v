@@ -1,12 +1,12 @@
-local bit = require("bit")
+local bit = require("utils/bit")
 
 local converter = {
     -- convert signed value to 32-bit signed value
     interpret_as_32_bit_signed_value = function(signed_value)
         local ret_val = signed_value
         if bit.band(signed_value, 0x80000000) ~= 0 then
-            ret_val = -((bit.bnot(signed_value) % 0xFFFFFFFF) +1)
---            ret_val = -((bit.lshift(bit.band(bit.bnot(signed_value), 0xFFFFFFFF), 1) + 1))
+--            ret_val = -((bit.bnot(signed_value) % 0xFFFFFFFF) +1)
+            ret_val = -((bit.lshift(bit.band(bit.bnot(signed_value), 0xFFFFFFFF), 1) + 1))
         end
         return ret_val
     end,
@@ -34,8 +34,8 @@ local converter = {
         local ret_val = signed_value
 
         if bit.band(signed_value, 0x00001000) ~= 0 then
-            ret_val = -((bit.band(bit.bnot(signed_value), 0x00000FFF)) + 1)
---            ret_val = -((bit.lshift(bit.band(bit.bnot(signed_value), 0x00000FFF), 4) + 1))
+--            ret_val = -((bit.band(bit.bnot(signed_value), 0x00000FFF)) + 1)
+            ret_val = -((bit.lshift(bit.band(bit.bnot(signed_value), 0x00000FFF), 4) + 1))
         end
         return ret_val
     end,

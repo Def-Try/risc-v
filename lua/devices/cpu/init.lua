@@ -1,4 +1,4 @@
-local bit32 = require("bit")
+local bit32 = require("utils/bit")
 
 local INSTRUCTIONS = require("devices/cpu/instructions")
 
